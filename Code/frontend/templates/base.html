@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+<script>document.documentElement.classList.add('js')</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ t('home.hero_subtitle') }}{% endblock %}">
+<link rel="alternate" hreflang="ar" href="{{ request.url.path if lang == 'ar' else alt_path }}">
+<link rel="alternate" hreflang="en" href="{{ request.url.path if lang == 'en' else alt_path }}">
+<link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+{% include "partials/header.html" %}
+<main class="site-main">
+{% block content %}{% endblock %}
+</main>
+{% include "partials/footer.html" %}
+<script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "home": "Home",
+    "waterparks": "Waterparks",
+    "explore": "Explore",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "One gate to explore Aqaba",
+    "hero_subtitle": "Compare Aqaba's attractions, see real prices and hours, then book directly with the venue.",
+    "featured_title": "Featured waterparks",
+    "posts_title": "From the blog",
+    "view_all": "View all"
+  },
+  "waterparks": {
+    "title": "Waterparks",
+    "subtitle": "Prices and hours, verified by hand.",
+    "price_adult": "Adult",
+    "price_child": "Child",
+    "hours": "Hours",
+    "cta": "Book on partner site",
+    "last_verified": "Last verified: {date}",
+    "may_have_changed": "Prices may have changed since this was last checked"
+  },
+  "explore": {
+    "title": "Explore Aqaba",
+    "subtitle": "Places to visit and things to know before you go."
+  },
+  "about": {
+    "title": "About Eye of Aqaba",
+    "body": "Eye of Aqaba is a referral portal — one gate to Aqaba's attractions. We show you real prices and hours, then send you straight to the operator to book. We take no payments and hold no bookings ourselves."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Questions about Aqaba or this site?",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "message": "Message",
+    "send": "Send message",
+    "faq_title": "Frequently asked questions",
+    "form_note": "The contact form isn't wired up yet — this is a Phase 1 preview."
+  },
+  "footer": {
+    "tagline": "One gate to explore Aqaba.",
+    "rights": "All rights reserved."
+  }
+}

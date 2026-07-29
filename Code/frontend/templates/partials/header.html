@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="container site-header__row">
+    <a class="site-header__brand" href="/{{ lang }}/">{{ site_name_ar if lang == 'ar' else site_name_en }}</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">{{ t('nav.home') }}</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/{{ lang }}/waterparks">{{ t('nav.waterparks') }}</a>
+      <a href="/{{ lang }}/explore">{{ t('nav.explore') }}</a>
+      <a href="/{{ lang }}/about">{{ t('nav.about') }}</a>
+      <a href="/{{ lang }}/contact">{{ t('nav.contact') }}</a>
+    </nav>
+    {% include "partials/lang_toggle.html" %}
+  </div>
+</header>

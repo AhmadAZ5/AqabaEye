@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block title %}{{ t('waterparks.title') }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ t('waterparks.subtitle') }}{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <h1>{{ t('waterparks.title') }}</h1>
+  <p>{{ t('waterparks.subtitle') }}</p>
+</section>
+
+<section class="section container">
+  <div class="grid">
+    {% for w in waterparks %}
+      {{ card(
+        title=w.name_ar if lang == 'ar' else w.name_en,
+        href="/" + lang + "/waterparks/" + w.slug,
+        link_text=t('waterparks.cta'),
+        summary=w.summary_ar if lang == 'ar' else w.summary_en,
+        tone='sea',
+        meta=[
+          t('waterparks.price_adult') + ": " + w.price_adult|string + " " + w.currency,
+          t('waterparks.hours') + ": " + w.hours,
+          t('waterparks.last_verified').replace('{date}', w.last_verified)
+        ]
+      ) }}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

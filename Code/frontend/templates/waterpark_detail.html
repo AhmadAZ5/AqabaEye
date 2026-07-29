@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% set name = waterpark.name_ar if lang == 'ar' else waterpark.name_en %}
+{% set description = waterpark.description_ar if lang == 'ar' else waterpark.description_en %}
+
+{% block title %}{{ name }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ waterpark.summary_ar if lang == 'ar' else waterpark.summary_en }}{% endblock %}
+
+{% block content %}
+<article class="detail container">
+  <div class="detail__media placeholder-img placeholder-img--large" data-tone="sea" aria-hidden="true">
+    <span>{{ name[:1] }}</span>
+  </div>
+
+  <h1>{{ name }}</h1>
+  <p class="detail__description">{{ description }}</p>
+
+  <dl class="detail__facts">
+    <div>
+      <dt>{{ t('waterparks.price_adult') }}</dt>
+      <dd>{{ waterpark.price_adult }} {{ waterpark.currency }}</dd>
+    </div>
+    <div>
+      <dt>{{ t('waterparks.price_child') }}</dt>
+      <dd>{{ waterpark.price_child }} {{ waterpark.currency }}</dd>
+    </div>
+    <div>
+      <dt>{{ t('waterparks.hours') }}</dt>
+      <dd>{{ waterpark.hours }}</dd>
+    </div>
+  </dl>
+
+  <p class="detail__verified{{ ' detail__verified--stale' if is_stale(waterpark.last_verified) else '' }}">
+    {{ t('waterparks.last_verified').replace('{date}', waterpark.last_verified) }}
+    {% if is_stale(waterpark.last_verified) %}&mdash; {{ t('waterparks.may_have_changed') }}{% endif %}
+  </p>
+
+  <a class="button button--primary" href="{{ waterpark.partner_url }}" target="_blank" rel="noopener">
+    {{ t('waterparks.cta') }}
+  </a>
+</article>
+{% endblock %}

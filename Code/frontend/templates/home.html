@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block title %}{{ t('home.hero_title') }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>{{ t('home.hero_title') }}</h1>
+    <p class="hero__subtitle">{{ t('home.hero_subtitle') }}</p>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section__head">
+    <h2>{{ t('home.featured_title') }}</h2>
+    <a class="section__viewall" href="/{{ lang }}/waterparks">{{ t('home.view_all') }} &rsaquo;</a>
+  </div>
+  <div class="grid">
+    {% for w in featured %}
+      {{ card(
+        title=w.name_ar if lang == 'ar' else w.name_en,
+        href="/" + lang + "/waterparks/" + w.slug,
+        link_text=t('waterparks.cta'),
+        summary=w.summary_ar if lang == 'ar' else w.summary_en,
+        tone='sea'
+      ) }}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section__head">
+    <h2>{{ t('home.posts_title') }}</h2>
+    <a class="section__viewall" href="/{{ lang }}/explore">{{ t('home.view_all') }} &rsaquo;</a>
+  </div>
+  <div class="grid">
+    {% for p in latest_posts %}
+      {{ card(
+        title=p.title_ar if lang == 'ar' else p.title_en,
+        href="/" + lang + "/explore/" + p.slug,
+        link_text=t('home.view_all'),
+        tone='coral'
+      ) }}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

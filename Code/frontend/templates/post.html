@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% set title = post.title_ar if lang == 'ar' else post.title_en %}
+{% set body = post.body_ar if lang == 'ar' else post.body_en %}
+
+{% block title %}{{ title }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+
+{% block content %}
+<article class="detail container">
+  <div class="detail__media placeholder-img placeholder-img--large" data-tone="coral" aria-hidden="true">
+    <span>{{ title[:1] }}</span>
+  </div>
+  <p class="detail__date">{{ post.published_at }}</p>
+  <h1>{{ title }}</h1>
+  <p class="detail__description">{{ body }}</p>
+</article>
+{% endblock %}

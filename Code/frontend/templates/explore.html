@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block title %}{{ t('explore.title') }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ t('explore.subtitle') }}{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <h1>{{ t('explore.title') }}</h1>
+  <p>{{ t('explore.subtitle') }}</p>
+</section>
+
+<section class="section container">
+  <div class="grid">
+    {% for p in posts %}
+      {{ card(
+        title=p.title_ar if lang == 'ar' else p.title_en,
+        href="/" + lang + "/explore/" + p.slug,
+        link_text=t('home.view_all'),
+        summary=(p.body_ar if lang == 'ar' else p.body_en)[:120] ~ '…',
+        tone='coral',
+        meta=[p.published_at]
+      ) }}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

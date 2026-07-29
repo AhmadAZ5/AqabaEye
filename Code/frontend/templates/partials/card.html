@@ -1,0 +1,17 @@
+{% macro card(title, href, link_text, summary=none, tone='sea', meta=none) %}
+<article class="card">
+  <div class="card__media placeholder-img" data-tone="{{ tone }}" aria-hidden="true">
+    <span>{{ title[:1] }}</span>
+  </div>
+  <div class="card__body">
+    <h3 class="card__title">{{ title }}</h3>
+    {% if summary %}<p class="card__summary">{{ summary }}</p>{% endif %}
+    {% if meta %}
+    <ul class="card__meta">
+      {% for line in meta %}<li>{{ line }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    <a class="card__link" href="{{ href }}">{{ link_text }}</a>
+  </div>
+</article>
+{% endmacro %}

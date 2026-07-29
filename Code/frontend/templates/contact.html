@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t('contact.title') }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ t('contact.subtitle') }}{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <h1>{{ t('contact.title') }}</h1>
+  <p>{{ t('contact.subtitle') }}</p>
+</section>
+
+<section class="section container contact-layout">
+  <form class="contact-form" novalidate>
+    <p class="contact-form__note">{{ t('contact.form_note') }}</p>
+    <label>
+      {{ t('contact.name') }}
+      <input type="text" name="name" autocomplete="name">
+    </label>
+    <label>
+      {{ t('contact.email') }}
+      <input type="email" name="email" autocomplete="email">
+    </label>
+    <label>
+      {{ t('contact.phone') }}
+      <input type="tel" name="phone" autocomplete="tel">
+    </label>
+    <label>
+      {{ t('contact.message') }}
+      <textarea name="message" rows="5"></textarea>
+    </label>
+    <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button type="submit" class="button button--primary" disabled>{{ t('contact.send') }}</button>
+  </form>
+
+  <div class="contact-info">
+    <p>{{ contact_settings.address_ar if lang == 'ar' else contact_settings.address_en }}</p>
+    <p><a href="mailto:{{ contact_settings.email }}">{{ contact_settings.email }}</a></p>
+    <p>{{ contact_settings.phone }}</p>
+
+    <h2>{{ t('contact.faq_title') }}</h2>
+    <dl class="faq">
+      {% for item in faq|sort(attribute='sort_order') %}
+      <div class="faq__item">
+        <dt>{{ item.question_ar if lang == 'ar' else item.question_en }}</dt>
+        <dd>{{ item.answer_ar if lang == 'ar' else item.answer_en }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+{% endblock %}
