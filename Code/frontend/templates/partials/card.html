@@ -1,8 +1,9 @@
-{% macro card(title, href, link_text, summary=none, tone='sea', meta=none) %}
+{# card just draws the photo if one got passed in, if not it skips straight to the text, no gray box or nothing #}
+{% macro card(title, href, link_text, summary=none, image=none, meta=none) %}
 <article class="card">
-  <div class="card__media placeholder-img" data-tone="{{ tone }}" aria-hidden="true">
-    <span>{{ title[:1] }}</span>
-  </div>
+  {% if image %}
+  <img class="card__media" src="{{ image }}" alt="{{ title }}" loading="lazy">
+  {% endif %}
   <div class="card__body">
     <h3 class="card__title">{{ title }}</h3>
     {% if summary %}<p class="card__summary">{{ summary }}</p>{% endif %}

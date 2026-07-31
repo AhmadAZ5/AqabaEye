@@ -37,6 +37,8 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 html[dir="rtl"] body {
@@ -68,9 +70,13 @@ a {
   padding-inline: var(--space-2);
 }
 
-/* Header */
+/* Header, sticks to the top and gets a shadow once you scroll past it so it doesnt blend into the page */
 .site-header {
   background: var(--color-sea-deep);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(6, 52, 74, 0.25);
 }
 
 .site-header__row {
@@ -99,11 +105,19 @@ a {
   color: var(--color-sand);
   text-decoration: none;
   font-size: 0.95rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-md);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.site-nav a:hover,
+.site-nav a:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .site-nav a[aria-current="page"] {
   color: var(--color-white);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .nav-toggle {
@@ -167,11 +181,40 @@ a {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Hero */
+/* Hero, the glow blob and the wave at the bottom are just decoration so they sit behind the real text */
 .hero {
+  position: relative;
   background: linear-gradient(135deg, var(--color-sea-deep), var(--color-sea));
   color: var(--color-white);
   padding-block: var(--space-5);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -35%;
+  inset-inline-end: -8%;
+  width: 55%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 48px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath d='M0,64L80,58.7C160,53,320,43,480,48C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L0,120Z' fill='%23f6efe3'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -221,6 +264,7 @@ a {
   gap: var(--space-3);
 }
 
+/* card lifts a bit on hover so the grid doesnt feel like a flat list of boxes */
 .card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -228,6 +272,12 @@ a {
   box-shadow: 0 1px 3px rgba(6, 52, 74, 0.12);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(6, 52, 74, 0.18);
 }
 
 .card__body {
@@ -263,30 +313,22 @@ a {
   color: var(--color-coral-dark);
 }
 
-/* Placeholder media blocks (no real photography yet) */
-.placeholder-img {
+/* card photo, only shows up once real files land in static/img, card.html skips it otherwise */
+.card__media {
+  width: 100%;
   aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-white);
-  font-size: 2rem;
-  font-weight: 700;
+  object-fit: cover;
+  display: block;
 }
 
-.placeholder-img--large {
+/* same deal but bigger, for the single detail page at the top of a waterpark or post */
+.detail__media {
+  width: 100%;
   aspect-ratio: 21 / 9;
+  object-fit: cover;
   border-radius: var(--radius-lg);
-  font-size: 3rem;
   margin-bottom: var(--space-3);
-}
-
-.placeholder-img[data-tone="sea"] {
-  background: linear-gradient(135deg, var(--color-sea), var(--color-sea-light));
-}
-
-.placeholder-img[data-tone="coral"] {
-  background: linear-gradient(135deg, var(--color-coral-dark), var(--color-coral));
+  display: block;
 }
 
 /* Detail pages */
@@ -346,6 +388,7 @@ a {
   font-weight: 600;
   border: none;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 .button--primary {
@@ -355,6 +398,8 @@ a {
 
 .button--primary:hover {
   background: var(--color-coral-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(200, 67, 27, 0.35);
 }
 
 .button:disabled {
@@ -412,6 +457,21 @@ a {
   inset-inline-start: -9999px;
 }
 
+/* contact-info had no box before, just floated text next to the form, this gives it the same card treatment */
+.contact-info {
+  background: var(--color-white);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.contact-info > p {
+  margin: 0 0 var(--space-1);
+}
+
+.contact-info h2 {
+  margin-top: var(--space-3);
+}
+
 .faq {
   margin: var(--space-2) 0 0;
 }
@@ -435,6 +495,7 @@ a {
   background: var(--color-sea-deep);
   color: var(--color-sand);
   margin-top: var(--space-5);
+  border-top: 3px solid var(--color-coral);
 }
 
 .site-footer__row {

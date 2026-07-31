@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+
+{% block title %}{{ t('attractions.title') }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ t('attractions.subtitle') }}{% endblock %}
+
+{% block content %}
+<section class="page-head container">
+  <h1>{{ t('attractions.title') }}</h1>
+  <p>{{ t('attractions.subtitle') }}</p>
+</section>
+
+<section class="section container">
+  <div class="grid">
+    {% for a in attractions %}
+      {{ card(
+        title=a.name_ar if lang == 'ar' else a.name_en,
+        href="/" + lang + "/attractions/" + a.slug,
+        link_text=t('attractions.cta'),
+        summary=a.summary_ar if lang == 'ar' else a.summary_en,
+        image=a.image_urls[0] if a.image_urls else none,
+        meta=[
+          t('attractions.price_adult') + ": " + a.price_adult|string + " " + a.currency,
+          t('attractions.hours') + ": " + a.hours,
+          t('attractions.last_verified').replace('{date}', a.last_verified)
+        ]
+      ) }}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

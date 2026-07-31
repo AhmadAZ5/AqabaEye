@@ -8,9 +8,9 @@
 
 {% block content %}
 <article class="detail container">
-  <div class="detail__media placeholder-img placeholder-img--large" data-tone="sea" aria-hidden="true">
-    <span>{{ name[:1] }}</span>
-  </div>
+  {% if waterpark.image_urls %}
+  <img class="detail__media" src="{{ waterpark.image_urls[0] }}" alt="{{ name }}">
+  {% endif %}
 
   <h1>{{ name }}</h1>
   <p class="detail__description">{{ description }}</p>

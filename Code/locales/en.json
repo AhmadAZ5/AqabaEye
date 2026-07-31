@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "waterparks": "Waterparks",
+    "attractions": "Attractions",
     "explore": "Explore",
     "about": "About",
     "contact": "Contact"
@@ -16,6 +17,16 @@
   "waterparks": {
     "title": "Waterparks",
     "subtitle": "Prices and hours, verified by hand.",
+    "price_adult": "Adult",
+    "price_child": "Child",
+    "hours": "Hours",
+    "cta": "Book on partner site",
+    "last_verified": "Last verified: {date}",
+    "may_have_changed": "Prices may have changed since this was last checked"
+  },
+  "attractions": {
+    "title": "Attractions",
+    "subtitle": "Other things to do in Aqaba, prices and hours verified by hand.",
     "price_adult": "Adult",
     "price_child": "Child",
     "hours": "Hours",

@@ -7,9 +7,9 @@
 
 {% block content %}
 <article class="detail container">
-  <div class="detail__media placeholder-img placeholder-img--large" data-tone="coral" aria-hidden="true">
-    <span>{{ title[:1] }}</span>
-  </div>
+  {% if post.cover_image %}
+  <img class="detail__media" src="{{ post.cover_image }}" alt="{{ title }}">
+  {% endif %}
   <p class="detail__date">{{ post.published_at }}</p>
   <h1>{{ title }}</h1>
   <p class="detail__description">{{ body }}</p>

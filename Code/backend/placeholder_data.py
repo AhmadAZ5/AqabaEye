@@ -3,6 +3,11 @@ Placeholder content shaped exactly like the Google Sheets schema in PRD FR-2.
 Phase 2 swaps this module for a live sheet fetch without touching templates.
 """
 
+# images live in the repo itself (frontend/static/img), served through jsDelivr's
+# free CDN instead of the app so Render isnt the one pushing all that image traffic.
+# only picks up whatever is actually pushed to the main branch on GitHub.
+IMG_CDN = "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img"
+
 WATERPARKS = [
     {
         "slug": "saraya-aqaba-waterpark",
@@ -63,6 +68,126 @@ WATERPARKS = [
         "is_featured": False,
         "is_published": True,
         "last_verified": "2026-06-15",
+    },
+]
+
+# same shape as WATERPARKS above, just for stuff that isnt a waterpark, golf clubs, diving trips, whatever comes next
+ATTRACTIONS = [
+    {
+        "slug": "ayla-golf-club",
+        "name_ar": "نادي أيلة للغولف",
+        "name_en": "Ayla Golf Club",
+        "summary_ar": "ملعب غولف من 18 حفرة في واحة أيلة على ساحل العقبة.",
+        "summary_en": "An 18 hole golf course at Ayla Oasis on the Aqaba coastline.",
+        "description_ar": "نص وصفي مؤقت لنادي أيلة للغولف. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+        "description_en": "Placeholder description for Ayla Golf Club. Real copy, photography and pricing arrive from the client in a later phase.",
+        "price_adult": 0,
+        "price_child": 0,
+        "currency": "JOD",
+        "hours": "06:00 - 18:00",
+        "lat": 29.5395,
+        "lng": 35.0055,
+        "partner_url": "https://www.ayla.com.jo/golf-residences-2/",
+        "image_urls": [f"{IMG_CDN}/attractions/ayla-golf-club-1.jpg"],
+        "is_featured": True,
+        "is_published": True,
+        "last_verified": "2026-07-15",
+    },
+    {
+        "slug": "aquamarina-sea-breeze-co",
+        "name_ar": "أكوامارينا وسي بريز",
+        "name_en": "Aquamarina & Sea Breeze Co",
+        "summary_ar": "رحلات بحرية وأنشطة قوارب على ساحل العقبة.",
+        "summary_en": "Boat trips and marine outings on the Aqaba coastline.",
+        "description_ar": "نص وصفي مؤقت لأكوامارينا وسي بريز. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+        "description_en": "Placeholder description for Aquamarina & Sea Breeze Co. Real copy, photography and pricing arrive from the client in a later phase.",
+        "price_adult": 0,
+        "price_child": 0,
+        "currency": "JOD",
+        "hours": "09:00 - 17:00",
+        "lat": 29.5177,
+        "lng": 34.9857,
+        "partner_url": "http://www.seabreezeaqaba.com/",
+        "image_urls": [
+            f"{IMG_CDN}/attractions/aquamarina-sea-breeze-co-1.jpg",
+            f"{IMG_CDN}/attractions/aquamarina-sea-breeze-co-2.jpg",
+            f"{IMG_CDN}/attractions/aquamarina-sea-breeze-co-3.jpg",
+        ],
+        "is_featured": False,
+        "is_published": True,
+        "last_verified": "2026-07-31",
+    },
+    {
+        "slug": "bait-alaqaba-dive-resort",
+        "name_ar": "بيت العقبة دايف ريزورت",
+        "name_en": "Bait Alaqaba Dive Resort",
+        "summary_ar": "منتجع وغوص على ساحل العقبة مع أنشطة بحرية.",
+        "summary_en": "A dive resort on the Aqaba coastline with marine activities and a poolside venue.",
+        "description_ar": "نص وصفي مؤقت لبيت العقبة دايف ريزورت. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+        "description_en": "Placeholder description for Bait Alaqaba Dive Resort. Real copy, photography and pricing arrive from the client in a later phase.",
+        "price_adult": 0,
+        "price_child": 0,
+        "currency": "JOD",
+        "hours": "08:00 - 17:00",
+        "lat": 29.5050,
+        "lng": 34.9880,
+        "partner_url": "https://www.instagram.com/bait.alaqaba/",
+        "image_urls": [
+            f"{IMG_CDN}/attractions/bait-alaqaba-dive-resort-1.jpg",
+            f"{IMG_CDN}/attractions/bait-alaqaba-dive-resort-2.jpg",
+            f"{IMG_CDN}/attractions/bait-alaqaba-dive-resort-3.jpg",
+        ],
+        "is_featured": False,
+        "is_published": True,
+        "last_verified": "2026-07-31",
+    },
+    {
+        "slug": "rise-adventure-park",
+        "name_ar": "رايز أدفنتشر بارك",
+        "name_en": "Rise Adventure Park",
+        "summary_ar": "حديقة مغامرات بحبال وألعاب مرتفعة في واحة أيلة.",
+        "summary_en": "A high-ropes adventure park at Ayla Oasis.",
+        "description_ar": "نص وصفي مؤقت لرايز أدفنتشر بارك. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+        "description_en": "Placeholder description for Rise Adventure Park. Real copy, photography and pricing arrive from the client in a later phase.",
+        "price_adult": 0,
+        "price_child": 0,
+        "currency": "JOD",
+        "hours": "10:00 - 18:00",
+        "lat": 29.5390,
+        "lng": 35.0060,
+        "partner_url": "https://www.ayla.com.jo/activities/rise-high-rise/",
+        "image_urls": [
+            f"{IMG_CDN}/attractions/rise-adventure-park-1.jpg",
+            f"{IMG_CDN}/attractions/rise-adventure-park-2.jpg",
+            f"{IMG_CDN}/attractions/rise-adventure-park-3.jpg",
+        ],
+        "is_featured": False,
+        "is_published": True,
+        "last_verified": "2026-07-31",
+    },
+    {
+        "slug": "royal-diving-club",
+        "name_ar": "رويال دايفنج كلوب",
+        "name_en": "Royal Diving Club",
+        "summary_ar": "نادي غوص على ساحل العقبة الجنوبي مع مواقع غوص مرجانية.",
+        "summary_en": "A dive club on Aqaba's south coast with coral reef dive sites.",
+        "description_ar": "نص وصفي مؤقت لرويال دايفنج كلوب. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+        "description_en": "Placeholder description for Royal Diving Club. Real copy, photography and pricing arrive from the client in a later phase.",
+        "price_adult": 0,
+        "price_child": 0,
+        "currency": "JOD",
+        "hours": "08:00 - 17:00",
+        "lat": 29.4870,
+        "lng": 34.9700,
+        "partner_url": "https://example.com/PLACEHOLDER-royal-diving-club",
+        "image_urls": [
+            f"{IMG_CDN}/attractions/royal-diving-club-1.jpg",
+            f"{IMG_CDN}/attractions/royal-diving-club-2.jpg",
+            f"{IMG_CDN}/attractions/royal-diving-club-3.jpg",
+        ],
+        "is_featured": False,
+        "is_published": True,
+        "last_verified": "2026-07-31",
     },
 ]
 

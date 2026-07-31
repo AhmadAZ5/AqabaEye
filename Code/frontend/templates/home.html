@@ -23,7 +23,7 @@
         href="/" + lang + "/waterparks/" + w.slug,
         link_text=t('waterparks.cta'),
         summary=w.summary_ar if lang == 'ar' else w.summary_en,
-        tone='sea'
+        image=w.image_urls[0] if w.image_urls else none
       ) }}
     {% endfor %}
   </div>
@@ -40,7 +40,7 @@
         title=p.title_ar if lang == 'ar' else p.title_en,
         href="/" + lang + "/explore/" + p.slug,
         link_text=t('home.view_all'),
-        tone='coral'
+        image=p.cover_image
       ) }}
     {% endfor %}
   </div>

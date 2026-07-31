@@ -18,7 +18,7 @@
         href="/" + lang + "/explore/" + p.slug,
         link_text=t('home.view_all'),
         summary=(p.body_ar if lang == 'ar' else p.body_en)[:120] ~ '…',
-        tone='coral',
+        image=p.cover_image,
         meta=[p.published_at]
       ) }}
     {% endfor %}

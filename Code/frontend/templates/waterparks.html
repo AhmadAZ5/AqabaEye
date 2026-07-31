@@ -18,7 +18,7 @@
         href="/" + lang + "/waterparks/" + w.slug,
         link_text=t('waterparks.cta'),
         summary=w.summary_ar if lang == 'ar' else w.summary_en,
-        tone='sea',
+        image=w.image_urls[0] if w.image_urls else none,
         meta=[
           t('waterparks.price_adult') + ": " + w.price_adult|string + " " + w.currency,
           t('waterparks.hours') + ": " + w.hours,

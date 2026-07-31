@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% set name = attraction.name_ar if lang == 'ar' else attraction.name_en %}
+{% set description = attraction.description_ar if lang == 'ar' else attraction.description_en %}
+
+{% block title %}{{ name }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ attraction.summary_ar if lang == 'ar' else attraction.summary_en }}{% endblock %}
+
+{% block content %}
+<article class="detail container">
+  {% if attraction.image_urls %}
+  <img class="detail__media" src="{{ attraction.image_urls[0] }}" alt="{{ name }}">
+  {% endif %}
+
+  <h1>{{ name }}</h1>
+  <p class="detail__description">{{ description }}</p>
+
+  <dl class="detail__facts">
+    <div>
+      <dt>{{ t('attractions.price_adult') }}</dt>
+      <dd>{{ attraction.price_adult }} {{ attraction.currency }}</dd>
+    </div>
+    <div>
+      <dt>{{ t('attractions.price_child') }}</dt>
+      <dd>{{ attraction.price_child }} {{ attraction.currency }}</dd>
+    </div>
+    <div>
+      <dt>{{ t('attractions.hours') }}</dt>
+      <dd>{{ attraction.hours }}</dd>
+    </div>
+  </dl>
+
+  <p class="detail__verified{{ ' detail__verified--stale' if is_stale(attraction.last_verified) else '' }}">
+    {{ t('attractions.last_verified').replace('{date}', attraction.last_verified) }}
+    {% if is_stale(attraction.last_verified) %}&mdash; {{ t('attractions.may_have_changed') }}{% endif %}
+  </p>
+
+  <a class="button button--primary" href="{{ attraction.partner_url }}" target="_blank" rel="noopener">
+    {{ t('attractions.cta') }}
+  </a>
+</article>
+{% endblock %}

@@ -8,7 +8,7 @@ from fastapi.templating import Jinja2Templates
 
 from config import settings
 from i18n import DEFAULT_LANG, SUPPORTED_LANGS, get_translation
-from placeholder_data import FAQ, POSTS, SETTINGS, WATERPARKS
+from placeholder_data import ATTRACTIONS, FAQ, POSTS, SETTINGS, WATERPARKS
 
 BACKEND_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BACKEND_DIR.parent / "frontend"
@@ -88,6 +88,20 @@ async def waterpark_detail(request: Request, lang: str, slug: str):
     if match is None:
         raise HTTPException(status_code=404)
     return render(request, "waterpark_detail.html", lang, waterpark=match, is_stale=is_stale)
+
+
+@app.get("/{lang}/attractions", response_class=HTMLResponse)
+async def attractions_list(request: Request, lang: str):
+    published = [a for a in ATTRACTIONS if a["is_published"]]
+    return render(request, "attractions.html", lang, attractions=published, is_stale=is_stale)
+
+
+@app.get("/{lang}/attractions/{slug}", response_class=HTMLResponse)
+async def attraction_detail(request: Request, lang: str, slug: str):
+    match = next((a for a in ATTRACTIONS if a["slug"] == slug and a["is_published"]), None)
+    if match is None:
+        raise HTTPException(status_code=404)
+    return render(request, "attraction_detail.html", lang, attraction=match, is_stale=is_stale)
 
 
 @app.get("/{lang}/explore", response_class=HTMLResponse)
