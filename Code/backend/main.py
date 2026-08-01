@@ -97,10 +97,15 @@ async def root(request: Request):
 @app.get("/{lang}/", response_class=HTMLResponse)
 async def home(request: Request, lang: str):
     waterparks = get_waterparks()
+    attractions = get_attractions()
     posts = get_posts()
     featured = [w for w in waterparks if w["is_published"] and w["is_featured"]]
+    featured_attractions = [a for a in attractions if a["is_published"] and a["is_featured"]]
     latest_posts = [p for p in posts if p["is_published"]][:3]
-    return render(request, "home.html", lang, featured=featured, latest_posts=latest_posts)
+    return render(
+        request, "home.html", lang, featured=featured, featured_attractions=featured_attractions,
+        latest_posts=latest_posts,
+    )
 
 
 @app.get("/{lang}/waterparks", response_class=HTMLResponse)

@@ -13,6 +13,24 @@
 
 <section class="section container">
   <div class="section__head">
+    <h2>{{ t('home.featured_attractions_title') }}</h2>
+    <a class="section__viewall" href="/{{ lang }}/attractions">{{ t('home.view_all') }} &rsaquo;</a>
+  </div>
+  <div class="grid">
+    {% for a in featured_attractions %}
+      {{ card(
+        title=a.name_ar if lang == 'ar' else a.name_en,
+        href="/" + lang + "/attractions/" + a.slug,
+        link_text=t('attractions.cta'),
+        summary=a.summary_ar if lang == 'ar' else a.summary_en,
+        image=a.image_urls[0] if a.image_urls else none
+      ) }}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section__head">
     <h2>{{ t('home.featured_title') }}</h2>
     <a class="section__viewall" href="/{{ lang }}/waterparks">{{ t('home.view_all') }} &rsaquo;</a>
   </div>

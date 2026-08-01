@@ -112,7 +112,7 @@
     },
     {
       "slug": "bait-alaqaba-dive-resort",
-      "name_ar": "بيت العقبة دايف ريزورت",
+      "name_ar": "منتجع بيت العقبة للغوص",
       "name_en": "Bait Alaqaba Dive Resort",
       "summary_ar": "منتجع وغوص على ساحل العقبة مع أنشطة بحرية.",
       "summary_en": "A dive resort on the Aqaba coastline with marine activities and a poolside venue.",
@@ -136,7 +136,7 @@
     },
     {
       "slug": "rise-adventure-park",
-      "name_ar": "رايز أدفنتشر بارك",
+      "name_ar": "حديقة مغامرات رايز",
       "name_en": "Rise Adventure Park",
       "summary_ar": "حديقة مغامرات بحبال وألعاب مرتفعة في واحة أيلة.",
       "summary_en": "A high-ropes adventure park at Ayla Oasis.",
@@ -160,7 +160,7 @@
     },
     {
       "slug": "royal-diving-club",
-      "name_ar": "رويال دايفنج كلوب",
+      "name_ar": "نادي رويال للغوص",
       "name_en": "Royal Diving Club",
       "summary_ar": "نادي غوص على ساحل العقبة الجنوبي مع مواقع غوص مرجانية.",
       "summary_en": "A dive club on Aqaba's south coast with coral reef dive sites.",
@@ -178,13 +178,13 @@
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/royal-diving-club-2.jpg",
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/royal-diving-club-3.jpg"
       ],
-      "is_featured": false,
+      "is_featured": true,
       "is_published": true,
       "last_verified": "2026-07-31"
     },
     {
       "slug": "deep-blue-dive-center",
-      "name_ar": "ديب بلو دايف سنتر",
+      "name_ar": "مركز ديب بلو للغوص",
       "name_en": "Deep Blue Dive Center",
       "summary_ar": "مركز غوص في العقبة يشمل حطام الدبابات والسفن الغارقة.",
       "summary_en": "A dive center in Aqaba covering the sunken tank and shipwreck sites.",
@@ -202,7 +202,7 @@
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/deep-blue-dive-center-2.jpg",
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/deep-blue-dive-center-3.jpg"
       ],
-      "is_featured": false,
+      "is_featured": true,
       "is_published": true,
       "last_verified": "2026-08-01"
     },
