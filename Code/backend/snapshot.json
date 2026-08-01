@@ -78,7 +78,9 @@
       "lng": 35.0055,
       "partner_url": "https://www.ayla.com.jo/golf-residences-2/",
       "image_urls": [
-        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/ayla-golf-club-1.jpg"
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/ayla-golf-club-1.jpg",
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/ayla-golf-club-2.jpg",
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/ayla-golf-club-3.jpg"
       ],
       "is_featured": true,
       "is_published": true,
@@ -179,6 +181,54 @@
       "is_featured": false,
       "is_published": true,
       "last_verified": "2026-07-31"
+    },
+    {
+      "slug": "deep-blue-dive-center",
+      "name_ar": "ديب بلو دايف سنتر",
+      "name_en": "Deep Blue Dive Center",
+      "summary_ar": "مركز غوص في العقبة يشمل حطام الدبابات والسفن الغارقة.",
+      "summary_en": "A dive center in Aqaba covering the sunken tank and shipwreck sites.",
+      "description_ar": "نص وصفي مؤقت لديب بلو دايف سنتر. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+      "description_en": "Placeholder description for Deep Blue Dive Center. Real copy, photography and pricing arrive from the client in a later phase.",
+      "price_adult": 0,
+      "price_child": 0,
+      "currency": "JOD",
+      "hours": "08:00 - 17:00",
+      "lat": 29.485,
+      "lng": 34.975,
+      "partner_url": "https://www.deepbluedivecenter.com/",
+      "image_urls": [
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/deep-blue-dive-center-1.jpg",
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/deep-blue-dive-center-2.jpg",
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/deep-blue-dive-center-3.jpg"
+      ],
+      "is_featured": false,
+      "is_published": true,
+      "last_verified": "2026-08-01"
+    },
+    {
+      "slug": "triton-aqaba",
+      "name_ar": "ترايتون العقبة",
+      "name_en": "Triton Aqaba",
+      "summary_ar": "أنشطة رياضات مائية على ساحل العقبة، تيوب وباراسيلينغ وأكثر.",
+      "summary_en": "Water sports on the Aqaba coastline, tubing, parasailing, and more.",
+      "description_ar": "نص وصفي مؤقت لترايتون العقبة. سيُستبدل بمحتوى فعلي من العميل في مرحلة لاحقة.",
+      "description_en": "Placeholder description for Triton Aqaba. Real copy, photography and pricing arrive from the client in a later phase.",
+      "price_adult": 0,
+      "price_child": 0,
+      "currency": "JOD",
+      "hours": "09:00 - 17:00",
+      "lat": 29.519,
+      "lng": 34.984,
+      "partner_url": "https://tritonaqaba.com/",
+      "image_urls": [
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/triton-aqaba-1.jpg",
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/triton-aqaba-2.jpg",
+        "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/triton-aqaba-3.jpg"
+      ],
+      "is_featured": false,
+      "is_published": true,
+      "last_verified": "2026-08-01"
     }
   ],
   "posts": [
