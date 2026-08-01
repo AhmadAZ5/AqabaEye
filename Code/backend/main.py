@@ -1,11 +1,12 @@
 from datetime import date, datetime
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+from clicks import log_click, with_utm
 from config import settings
 from i18n import DEFAULT_LANG, SUPPORTED_LANGS, get_translation
 from sheets import get_attractions, get_faq, get_posts, get_settings, get_waterparks
@@ -89,7 +90,8 @@ async def waterpark_detail(request: Request, lang: str, slug: str):
     match = next((w for w in get_waterparks() if w["slug"] == slug and w["is_published"]), None)
     if match is None:
         raise HTTPException(status_code=404)
-    return render(request, "waterpark_detail.html", lang, waterpark=match, is_stale=is_stale)
+    cta_url = with_utm(match["partner_url"], slug)
+    return render(request, "waterpark_detail.html", lang, waterpark=match, is_stale=is_stale, cta_url=cta_url)
 
 
 @app.get("/{lang}/attractions", response_class=HTMLResponse)
@@ -103,7 +105,8 @@ async def attraction_detail(request: Request, lang: str, slug: str):
     match = next((a for a in get_attractions() if a["slug"] == slug and a["is_published"]), None)
     if match is None:
         raise HTTPException(status_code=404)
-    return render(request, "attraction_detail.html", lang, attraction=match, is_stale=is_stale)
+    cta_url = with_utm(match["partner_url"], slug)
+    return render(request, "attraction_detail.html", lang, attraction=match, is_stale=is_stale, cta_url=cta_url)
 
 
 @app.get("/{lang}/explore", response_class=HTMLResponse)
@@ -128,3 +131,38 @@ async def about(request: Request, lang: str):
 @app.get("/{lang}/contact", response_class=HTMLResponse)
 async def contact(request: Request, lang: str):
     return render(request, "contact.html", lang, faq=get_faq(), contact_settings=get_settings())
+
+
+# sendBeacon hits this on CTA click, fire and forget, never blocks the user
+@app.post("/api/click")
+async def api_click(request: Request):
+    try:
+        payload = await request.json()
+    except Exception:
+        return Response(status_code=204)
+
+    slug = payload.get("slug", "")
+    if slug:
+        await log_click(
+            slug,
+            payload.get("lang", ""),
+            request.headers.get("referer", ""),
+            request.headers.get("user-agent", ""),
+        )
+    return Response(status_code=204)
+
+
+# server-side fallback for links shared outside the site, also the only way
+# a click gets logged if the visitor's browser has no sendBeacon or JS is off
+@app.get("/go/{slug}")
+async def go(request: Request, slug: str):
+    match = next(
+        (v for v in get_waterparks() + get_attractions() if v["slug"] == slug and v["is_published"]),
+        None,
+    )
+    if match is None:
+        raise HTTPException(status_code=404)
+
+    lang = resolve_lang(request)
+    await log_click(slug, lang, request.headers.get("referer", ""), request.headers.get("user-agent", ""))
+    return RedirectResponse(url=with_utm(match["partner_url"], slug), status_code=302)

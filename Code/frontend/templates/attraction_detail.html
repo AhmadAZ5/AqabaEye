@@ -35,7 +35,8 @@
     {% if is_stale(attraction.last_verified) %}&mdash; {{ t('attractions.may_have_changed') }}{% endif %}
   </p>
 
-  <a class="button button--primary" href="{{ attraction.partner_url }}" target="_blank" rel="noopener">
+  <a class="button button--primary js-track-click" data-click-slug="{{ attraction.slug }}" data-click-lang="{{ lang }}"
+     href="{{ cta_url }}" target="_blank" rel="noopener">
     {{ t('attractions.cta') }}
   </a>
 </article>

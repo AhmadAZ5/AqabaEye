@@ -35,6 +35,7 @@ browser's language, then the toggle in the header switches manually.
 | `SHEET_CSV_POSTS` | Published-to-web CSV url for the `posts` tab, optional |
 | `SHEET_CSV_FAQ` | Published-to-web CSV url for the `faq` tab, optional |
 | `SHEET_CSV_SETTINGS` | Published-to-web CSV url for the `settings` tab, optional |
+| `CLICKS_WEBHOOK_URL` | Apps Script web app url that logs a click, optional, see `Files/apps_script_clicks_webhook.gs` |
 
 Leave any of the sheet vars blank and that tab falls back to `backend/snapshot.json`
 instead, the site never breaks just because a url is missing or a sheet edit went bad.
@@ -58,6 +59,18 @@ Column shapes, matching PRD FR-2:
   is_published
 - `faq`: question_ar, question_en, answer_ar, answer_en, sort_order
 - `settings`: key, value_ar, value_en (rows: `phone`, `email`, `address`)
+
+## Click tracking
+
+The CTA on every waterpark/attraction detail page points straight at the partner
+url (with `utm_source`/`utm_medium`/`utm_campaign` params appended) and fires
+`navigator.sendBeacon('/api/click', ...)` in the background on click, so the
+outbound link opens instantly even if the backend is cold. `/go/{slug}` is a
+server-side 302 fallback for the same url, used when the link is shared outside
+the site (an ad, a WhatsApp message), since there's no page loaded to fire a
+beacon from. Both paths log to the `clicks` tab via the Apps Script webhook in
+`CLICKS_WEBHOOK_URL`, see `Files/apps_script_clicks_webhook.gs` for the script
+and setup steps, including a `QUERY` formula for monthly totals.
 
 ## Deploy (Render free tier)
 

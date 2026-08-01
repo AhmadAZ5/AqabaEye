@@ -18,3 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// CTA click logging, fires in the background and never blocks the link from opening
+document.addEventListener("DOMContentLoaded", () => {
+  if (!navigator.sendBeacon) {
+    return;
+  }
+
+  document.querySelectorAll(".js-track-click").forEach((link) => {
+    link.addEventListener("click", () => {
+      const payload = JSON.stringify({
+        slug: link.dataset.clickSlug,
+        lang: link.dataset.clickLang,
+      });
+      navigator.sendBeacon("/api/click", new Blob([payload], { type: "application/json" }));
+    });
+  });
+});

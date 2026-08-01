@@ -17,5 +17,9 @@ class Settings:
         self.sheet_csv_faq = os.getenv("SHEET_CSV_FAQ", "")
         self.sheet_csv_settings = os.getenv("SHEET_CSV_SETTINGS", "")
 
+        # Apps Script web app url that appends a row to the "clicks" tab, optional,
+        # click tracking just quietly does nothing if this is blank
+        self.clicks_webhook_url = os.getenv("CLICKS_WEBHOOK_URL", "")
+
 
 settings = Settings()

@@ -35,7 +35,8 @@
     {% if is_stale(waterpark.last_verified) %}&mdash; {{ t('waterparks.may_have_changed') }}{% endif %}
   </p>
 
-  <a class="button button--primary" href="{{ waterpark.partner_url }}" target="_blank" rel="noopener">
+  <a class="button button--primary js-track-click" data-click-slug="{{ waterpark.slug }}" data-click-lang="{{ lang }}"
+     href="{{ cta_url }}" target="_blank" rel="noopener">
     {{ t('waterparks.cta') }}
   </a>
 </article>
