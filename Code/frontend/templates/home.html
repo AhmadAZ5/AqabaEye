@@ -5,9 +5,28 @@
 
 {% block content %}
 <section class="hero">
+  <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
   <div class="container">
-    <h1>{{ t('home.hero_title') }}</h1>
-    <p class="hero__subtitle">{{ t('home.hero_subtitle') }}</p>
+    <p class="hero__kicker reveal">{{ t('home.hook') }}</p>
+    <h1 class="reveal">{{ t('home.hero_title') }}</h1>
+    <p class="hero__subtitle reveal" style="transition-delay: 100ms">{{ t('home.hero_subtitle') }}</p>
+  </div>
+</section>
+
+<section class="stats container">
+  <div class="stats__item reveal">
+    <span class="stats__number" data-count="{{ total_venues }}">0</span>
+    <span class="stats__label">{{ t('home.stat_venues') }}</span>
+  </div>
+  <div class="stats__item reveal" style="transition-delay: 80ms">
+    <span class="stats__number" data-count="2">0</span>
+    <span class="stats__label">{{ t('home.stat_languages') }}</span>
+  </div>
+  <div class="stats__item reveal" style="transition-delay: 160ms">
+    <span class="stats__number" data-count="0">0</span>
+    <span class="stats__label">{{ t('home.stat_fees') }}</span>
   </div>
 </section>
 
@@ -23,7 +42,8 @@
         href="/" + lang + "/attractions/" + a.slug,
         link_text=t('attractions.cta'),
         summary=a.summary_ar if lang == 'ar' else a.summary_en,
-        image=a.image_urls[0] if a.image_urls else none
+        image=a.image_urls[0] if a.image_urls else none,
+        delay=loop.index0 * 80
       ) }}
     {% endfor %}
   </div>
@@ -41,7 +61,8 @@
         href="/" + lang + "/waterparks/" + w.slug,
         link_text=t('waterparks.cta'),
         summary=w.summary_ar if lang == 'ar' else w.summary_en,
-        image=w.image_urls[0] if w.image_urls else none
+        image=w.image_urls[0] if w.image_urls else none,
+        delay=loop.index0 * 80
       ) }}
     {% endfor %}
   </div>
@@ -58,7 +79,8 @@
         title=p.title_ar if lang == 'ar' else p.title_en,
         href="/" + lang + "/explore/" + p.slug,
         link_text=t('home.view_all'),
-        image=p.cover_image
+        image=p.cover_image,
+        delay=loop.index0 * 80
       ) }}
     {% endfor %}
   </div>

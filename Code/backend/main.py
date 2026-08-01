@@ -102,9 +102,10 @@ async def home(request: Request, lang: str):
     featured = [w for w in waterparks if w["is_published"] and w["is_featured"]]
     featured_attractions = [a for a in attractions if a["is_published"] and a["is_featured"]]
     latest_posts = [p for p in posts if p["is_published"]][:3]
+    total_venues = len([w for w in waterparks if w["is_published"]]) + len([a for a in attractions if a["is_published"]])
     return render(
         request, "home.html", lang, featured=featured, featured_attractions=featured_attractions,
-        latest_posts=latest_posts,
+        latest_posts=latest_posts, total_venues=total_venues,
     )
 
 

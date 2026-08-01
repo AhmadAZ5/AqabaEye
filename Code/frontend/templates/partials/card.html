@@ -1,6 +1,7 @@
-{# card just draws the photo if one got passed in, if not it skips straight to the text, no gray box or nothing #}
-{% macro card(title, href, link_text, summary=none, image=none, meta=none) %}
-<article class="card">
+{# card just draws the photo if one got passed in, if not it skips straight to the text, no gray box or nothing.
+   delay staggers the scroll-in animation so a grid of cards cascades in instead of popping in all at once #}
+{% macro card(title, href, link_text, summary=none, image=none, meta=none, delay=0) %}
+<article class="card reveal" style="transition-delay: {{ delay }}ms">
   {% if image %}
   <img class="card__media" src="{{ image }}" alt="{{ title }}" loading="lazy">
   {% endif %}

@@ -31,7 +31,8 @@
           t('attractions.price_adult') + ": " + a.price_adult|string + " " + a.currency,
           t('attractions.hours') + ": " + a.hours,
           t('attractions.last_verified').replace('{date}', a.last_verified)
-        ]
+        ],
+        delay=loop.index0 * 80
       ) }}
     {% endfor %}
   </div>

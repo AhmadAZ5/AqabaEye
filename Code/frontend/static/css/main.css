@@ -181,13 +181,74 @@ a {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Hero, the glow blob and the wave at the bottom are just decoration so they sit behind the real text */
+/* Hero, the glow blob and the wave at the bottom are just decoration so they sit behind the real text.
+   background-size bigger than 100% plus the shifting position is what makes the gradient slowly drift. */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--color-sea-deep), var(--color-sea));
+  background: linear-gradient(120deg, var(--color-sea-deep), var(--color-sea), var(--color-sea-light), var(--color-sea-deep));
+  background-size: 300% 300%;
+  animation: heroGradientDrift 16s ease-in-out infinite;
   color: var(--color-white);
   padding-block: var(--space-5);
   overflow: hidden;
+}
+
+@keyframes heroGradientDrift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* three soft blurred circles that drift up and down forever, purely decorative */
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  animation: heroOrbFloat 9s ease-in-out infinite;
+}
+
+.hero__orb--1 {
+  width: 240px;
+  height: 240px;
+  background: var(--color-coral);
+  opacity: 0.28;
+  top: -70px;
+  inset-inline-end: 8%;
+}
+
+.hero__orb--2 {
+  width: 180px;
+  height: 180px;
+  background: var(--color-sea-light);
+  opacity: 0.3;
+  bottom: -50px;
+  inset-inline-start: 12%;
+  animation-delay: 3s;
+}
+
+.hero__orb--3 {
+  width: 130px;
+  height: 130px;
+  background: var(--color-sand);
+  opacity: 0.16;
+  top: 20%;
+  inset-inline-start: 45%;
+  animation-delay: 5.5s;
+}
+
+@keyframes heroOrbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(14px, -22px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+  }
+
+  .hero__orb {
+    animation: none;
+  }
 }
 
 .hero::before {
@@ -226,6 +287,66 @@ a {
   max-width: 50ch;
   color: var(--color-sand);
   font-size: 1.1rem;
+}
+
+.hero__kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-coral);
+  margin: 0 0 var(--space-1);
+}
+
+/* the three big numbers under the hero */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  padding-block: var(--space-4);
+  text-align: center;
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stats__number {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-sea-deep);
+  line-height: 1;
+}
+
+.stats__label {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* fades and slides up once scrolled into view, js adds "revealed", see main.js.
+   without js html never gets the "js" class so everything just stays visible. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+html.js .reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Sections */
@@ -319,6 +440,17 @@ a {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__media {
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__media {
+    transition: none;
+  }
 }
 
 /* same deal but bigger, for the single detail page at the top of a waterpark or post */
