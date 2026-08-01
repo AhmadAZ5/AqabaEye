@@ -339,6 +339,18 @@ a {
   z-index: 0;
 }
 
+/* content inside a pin's popup, venue name plus the two external map links */
+.map-popup__title {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.map-popup__links {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
 /* Detail pages */
 .detail {
   padding-block: var(--space-4);

@@ -53,6 +53,10 @@
     "faq_title": "Frequently asked questions",
     "form_note": "The contact form isn't wired up yet — this is a Phase 1 preview."
   },
+  "map": {
+    "google_maps": "Google Maps",
+    "apple_maps": "Apple Maps"
+  },
   "footer": {
     "tagline": "One gate to explore Aqaba.",
     "rights": "All rights reserved."

@@ -12,7 +12,8 @@
 
 {% if markers %}
 <section class="container">
-  <div id="venue-map" class="venue-map" data-markers="{{ markers_json }}"></div>
+  <div id="venue-map" class="venue-map" data-markers="{{ markers_json }}"
+       data-gmaps-label="{{ t('map.google_maps') }}" data-amaps-label="{{ t('map.apple_maps') }}"></div>
 </section>
 {% endif %}
 
