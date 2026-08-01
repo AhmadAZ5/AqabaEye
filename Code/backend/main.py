@@ -8,7 +8,7 @@ from fastapi.templating import Jinja2Templates
 
 from config import settings
 from i18n import DEFAULT_LANG, SUPPORTED_LANGS, get_translation
-from placeholder_data import ATTRACTIONS, FAQ, POSTS, SETTINGS, WATERPARKS
+from sheets import get_attractions, get_faq, get_posts, get_settings, get_waterparks
 
 BACKEND_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BACKEND_DIR.parent / "frontend"
@@ -71,20 +71,22 @@ async def root(request: Request):
 
 @app.get("/{lang}/", response_class=HTMLResponse)
 async def home(request: Request, lang: str):
-    featured = [w for w in WATERPARKS if w["is_published"] and w["is_featured"]]
-    latest_posts = [p for p in POSTS if p["is_published"]][:3]
+    waterparks = get_waterparks()
+    posts = get_posts()
+    featured = [w for w in waterparks if w["is_published"] and w["is_featured"]]
+    latest_posts = [p for p in posts if p["is_published"]][:3]
     return render(request, "home.html", lang, featured=featured, latest_posts=latest_posts)
 
 
 @app.get("/{lang}/waterparks", response_class=HTMLResponse)
 async def waterparks_list(request: Request, lang: str):
-    published = [w for w in WATERPARKS if w["is_published"]]
+    published = [w for w in get_waterparks() if w["is_published"]]
     return render(request, "waterparks.html", lang, waterparks=published, is_stale=is_stale)
 
 
 @app.get("/{lang}/waterparks/{slug}", response_class=HTMLResponse)
 async def waterpark_detail(request: Request, lang: str, slug: str):
-    match = next((w for w in WATERPARKS if w["slug"] == slug and w["is_published"]), None)
+    match = next((w for w in get_waterparks() if w["slug"] == slug and w["is_published"]), None)
     if match is None:
         raise HTTPException(status_code=404)
     return render(request, "waterpark_detail.html", lang, waterpark=match, is_stale=is_stale)
@@ -92,13 +94,13 @@ async def waterpark_detail(request: Request, lang: str, slug: str):
 
 @app.get("/{lang}/attractions", response_class=HTMLResponse)
 async def attractions_list(request: Request, lang: str):
-    published = [a for a in ATTRACTIONS if a["is_published"]]
+    published = [a for a in get_attractions() if a["is_published"]]
     return render(request, "attractions.html", lang, attractions=published, is_stale=is_stale)
 
 
 @app.get("/{lang}/attractions/{slug}", response_class=HTMLResponse)
 async def attraction_detail(request: Request, lang: str, slug: str):
-    match = next((a for a in ATTRACTIONS if a["slug"] == slug and a["is_published"]), None)
+    match = next((a for a in get_attractions() if a["slug"] == slug and a["is_published"]), None)
     if match is None:
         raise HTTPException(status_code=404)
     return render(request, "attraction_detail.html", lang, attraction=match, is_stale=is_stale)
@@ -106,13 +108,13 @@ async def attraction_detail(request: Request, lang: str, slug: str):
 
 @app.get("/{lang}/explore", response_class=HTMLResponse)
 async def explore_list(request: Request, lang: str):
-    published = [p for p in POSTS if p["is_published"]]
+    published = [p for p in get_posts() if p["is_published"]]
     return render(request, "explore.html", lang, posts=published)
 
 
 @app.get("/{lang}/explore/{slug}", response_class=HTMLResponse)
 async def post_detail(request: Request, lang: str, slug: str):
-    match = next((p for p in POSTS if p["slug"] == slug and p["is_published"]), None)
+    match = next((p for p in get_posts() if p["slug"] == slug and p["is_published"]), None)
     if match is None:
         raise HTTPException(status_code=404)
     return render(request, "post.html", lang, post=match)
@@ -125,4 +127,4 @@ async def about(request: Request, lang: str):
 
 @app.get("/{lang}/contact", response_class=HTMLResponse)
 async def contact(request: Request, lang: str):
-    return render(request, "contact.html", lang, faq=FAQ, contact_settings=SETTINGS)
+    return render(request, "contact.html", lang, faq=get_faq(), contact_settings=get_settings())

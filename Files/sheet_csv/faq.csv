@@ -1,0 +1,3 @@
+question_ar,question_en,answer_ar,answer_en,sort_order
+هل يمكنني الحجز والدفع من خلال هذا الموقع؟,Can I book and pay through this site?,لا، هذا الموقع يعرض الأسعار وأوقات الزيارة ثم يوجهك إلى موقع الجهة المشغلة لإتمام الحجز.,"No — this site shows prices and hours, then sends you to the operator's own site to book and pay.",1
+هل الأسعار المعروضة محدثة دائمًا؟,Are the listed prices always current?,نعرض تاريخ آخر تحقق من كل سعر. ننصح بالتأكد من السعر النهائي مع الجهة المشغلة.,Each price shows a last-verified date. Please confirm the final price with the operator directly.,2
