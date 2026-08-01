@@ -5,6 +5,7 @@
 
 {% block title %}{{ name }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
 {% block description %}{{ waterpark.summary_ar if lang == 'ar' else waterpark.summary_en }}{% endblock %}
+{% block extra_head %}{% include "partials/leaflet_head.html" %}{% endblock %}
 
 {% block content %}
 <article class="detail container">
@@ -39,5 +40,10 @@
      href="{{ cta_url }}" target="_blank" rel="noopener">
     {{ t('waterparks.cta') }}
   </a>
+
+  {% if markers %}
+  <div id="venue-map" class="venue-map" data-markers="{{ markers_json }}"></div>
+  {% endif %}
 </article>
 {% endblock %}
+{% block extra_scripts %}{% include "partials/leaflet_scripts.html" %}{% endblock %}

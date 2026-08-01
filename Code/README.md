@@ -58,7 +58,7 @@ Column shapes, matching PRD FR-2:
 - `posts`: slug, title_ar, title_en, body_ar, body_en, cover_image, published_at,
   is_published
 - `faq`: question_ar, question_en, answer_ar, answer_en, sort_order
-- `settings`: key, value_ar, value_en (rows: `phone`, `email`, `address`)
+- `settings`: key, value_ar, value_en (rows: `phone`, `email`, `address`, `lat`, `lng`, the last two are for the contact page map pin)
 
 ## Click tracking
 
@@ -90,7 +90,6 @@ and setup steps, including a `QUERY` formula for monthly totals.
 - **Click tracking**: waterpark and attraction CTAs link straight to the
   `partner_url` from the sheet. No `sendBeacon`, no `/go/{slug}`, no click logging
   yet, that's Phase 3.
-- **Map**: no Leaflet yet (Phase 4). Lat/lng already exist in every venue row.
 - **SEO extras**: `sitemap.xml`, `robots.txt`, Open Graph tags, and JSON-LD are
   Phase 5.
 
@@ -106,3 +105,6 @@ and setup steps, including a `QUERY` formula for monthly totals.
 - Real venue photos, committed to this repo and served through jsDelivr's CDN.
 - Content pipeline described above, currently running on `snapshot.json` until the
   live Google Sheet is published and its urls are set.
+- Leaflet + OpenStreetMap map (no API key) on the waterpark/attraction directory
+  and detail pages, plus the contact page pin. Venues without lat/lng just get
+  skipped instead of breaking the map.

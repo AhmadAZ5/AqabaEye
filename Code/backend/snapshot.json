@@ -233,6 +233,8 @@
     "phone": "+962 000 000 000",
     "email": "Eyeofaqaba@gmail.com",
     "address_ar": "العقبة، الأردن",
-    "address_en": "Aqaba, Jordan"
+    "address_en": "Aqaba, Jordan",
+    "lat": 29.5157,
+    "lng": 35.0071
   }
 }

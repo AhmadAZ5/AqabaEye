@@ -104,6 +104,9 @@ def _parse_settings_rows(rows: list[dict]) -> dict:
         if key == "address":
             result["address_ar"] = row["value_ar"]
             result["address_en"] = row["value_en"]
+        elif key in ("lat", "lng"):
+            value = row["value_en"] or row["value_ar"]
+            result[key] = float(value) if value else None
         else:
             result[key] = row["value_en"] or row["value_ar"]
     return result

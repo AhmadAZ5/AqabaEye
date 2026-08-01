@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pathlib import Path
 
@@ -36,6 +37,24 @@ def is_stale(last_verified: str) -> bool:
     return (date.today() - verified_date).days > 30
 
 
+# builds the marker list map.js reads off the page, skips any venue missing
+# lat/lng instead of crashing the map over one bad sheet row
+def venue_markers(venues: list[dict], lang: str, href_prefix: str | None = None) -> list[dict]:
+    markers = []
+    for v in venues:
+        if v.get("lat") is None or v.get("lng") is None:
+            continue
+        marker = {
+            "lat": v["lat"],
+            "lng": v["lng"],
+            "title": v["name_ar"] if lang == "ar" else v["name_en"],
+        }
+        if href_prefix:
+            marker["href"] = f"{href_prefix}/{v['slug']}"
+        markers.append(marker)
+    return markers
+
+
 def render(request: Request, template_name: str, lang: str, **context):
     if lang not in SUPPORTED_LANGS:
         raise HTTPException(status_code=404)
@@ -43,6 +62,11 @@ def render(request: Request, template_name: str, lang: str, **context):
     other_lang = "ar" if lang == "en" else "en"
     current_path = request.url.path
     alt_path = f"/{other_lang}{current_path[3:]}" if current_path.startswith(f"/{lang}") else f"/{other_lang}/"
+
+    # markers travels as a real list for {% if markers %} checks, markers_json is the
+    # string that actually goes in the html attribute, autoescape handles quoting it safely
+    if "markers" in context:
+        context["markers_json"] = json.dumps(context["markers"], ensure_ascii=False)
 
     response = templates.TemplateResponse(
         request,
@@ -82,7 +106,8 @@ async def home(request: Request, lang: str):
 @app.get("/{lang}/waterparks", response_class=HTMLResponse)
 async def waterparks_list(request: Request, lang: str):
     published = [w for w in get_waterparks() if w["is_published"]]
-    return render(request, "waterparks.html", lang, waterparks=published, is_stale=is_stale)
+    markers = venue_markers(published, lang, href_prefix=f"/{lang}/waterparks")
+    return render(request, "waterparks.html", lang, waterparks=published, is_stale=is_stale, markers=markers)
 
 
 @app.get("/{lang}/waterparks/{slug}", response_class=HTMLResponse)
@@ -91,13 +116,17 @@ async def waterpark_detail(request: Request, lang: str, slug: str):
     if match is None:
         raise HTTPException(status_code=404)
     cta_url = with_utm(match["partner_url"], slug)
-    return render(request, "waterpark_detail.html", lang, waterpark=match, is_stale=is_stale, cta_url=cta_url)
+    markers = venue_markers([match], lang)
+    return render(
+        request, "waterpark_detail.html", lang, waterpark=match, is_stale=is_stale, cta_url=cta_url, markers=markers
+    )
 
 
 @app.get("/{lang}/attractions", response_class=HTMLResponse)
 async def attractions_list(request: Request, lang: str):
     published = [a for a in get_attractions() if a["is_published"]]
-    return render(request, "attractions.html", lang, attractions=published, is_stale=is_stale)
+    markers = venue_markers(published, lang, href_prefix=f"/{lang}/attractions")
+    return render(request, "attractions.html", lang, attractions=published, is_stale=is_stale, markers=markers)
 
 
 @app.get("/{lang}/attractions/{slug}", response_class=HTMLResponse)
@@ -106,7 +135,10 @@ async def attraction_detail(request: Request, lang: str, slug: str):
     if match is None:
         raise HTTPException(status_code=404)
     cta_url = with_utm(match["partner_url"], slug)
-    return render(request, "attraction_detail.html", lang, attraction=match, is_stale=is_stale, cta_url=cta_url)
+    markers = venue_markers([match], lang)
+    return render(
+        request, "attraction_detail.html", lang, attraction=match, is_stale=is_stale, cta_url=cta_url, markers=markers
+    )
 
 
 @app.get("/{lang}/explore", response_class=HTMLResponse)
@@ -130,7 +162,15 @@ async def about(request: Request, lang: str):
 
 @app.get("/{lang}/contact", response_class=HTMLResponse)
 async def contact(request: Request, lang: str):
-    return render(request, "contact.html", lang, faq=get_faq(), contact_settings=get_settings())
+    contact_settings = get_settings()
+    markers = []
+    if contact_settings.get("lat") is not None and contact_settings.get("lng") is not None:
+        markers = [{
+            "lat": contact_settings["lat"],
+            "lng": contact_settings["lng"],
+            "title": contact_settings["address_ar"] if lang == "ar" else contact_settings["address_en"],
+        }]
+    return render(request, "contact.html", lang, faq=get_faq(), contact_settings=contact_settings, markers=markers)
 
 
 # sendBeacon hits this on CTA click, fire and forget, never blocks the user

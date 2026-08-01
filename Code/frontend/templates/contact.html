@@ -2,12 +2,19 @@
 
 {% block title %}{{ t('contact.title') }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
 {% block description %}{{ t('contact.subtitle') }}{% endblock %}
+{% block extra_head %}{% include "partials/leaflet_head.html" %}{% endblock %}
 
 {% block content %}
 <section class="page-head container">
   <h1>{{ t('contact.title') }}</h1>
   <p>{{ t('contact.subtitle') }}</p>
 </section>
+
+{% if markers %}
+<section class="container">
+  <div id="venue-map" class="venue-map" data-markers="{{ markers_json }}"></div>
+</section>
+{% endif %}
 
 <section class="section container contact-layout">
   <form class="contact-form" novalidate>
@@ -49,3 +56,4 @@
   </div>
 </section>
 {% endblock %}
+{% block extra_scripts %}{% include "partials/leaflet_scripts.html" %}{% endblock %}
