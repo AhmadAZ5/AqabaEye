@@ -601,6 +601,28 @@ html.js .reveal.revealed {
 .contact-form__note {
   margin: 0;
   font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.contact-form__error {
+  min-height: 1em;
+  font-size: 0.8rem;
+  color: var(--color-coral-dark);
+}
+
+.contact-form__status {
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.contact-form__status--success {
+  background: var(--color-sand);
+  color: var(--color-sea-deep);
+}
+
+.contact-form__status--error {
+  background: var(--color-sand);
   color: var(--color-coral-dark);
 }
 

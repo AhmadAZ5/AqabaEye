@@ -18,15 +18,25 @@
 {% endif %}
 
 <section class="section container contact-layout">
-  <form class="contact-form" novalidate>
+  <form class="contact-form" id="contact-form" novalidate
+        data-msg-sending="{{ t('contact.sending') }}"
+        data-msg-success="{{ t('contact.success') }}"
+        data-msg-error="{{ t('contact.error_generic') }}"
+        data-msg-rate-limited="{{ t('contact.rate_limited') }}"
+        data-err-name="{{ t('contact.errors.name') }}"
+        data-err-email="{{ t('contact.errors.email') }}"
+        data-err-message="{{ t('contact.errors.message') }}">
     <p class="contact-form__note">{{ t('contact.form_note') }}</p>
+    <div class="contact-form__status" id="contact-status" role="status" aria-live="polite" hidden></div>
     <label>
       {{ t('contact.name') }}
       <input type="text" name="name" autocomplete="name">
+      <span class="contact-form__error" data-error-for="name"></span>
     </label>
     <label>
       {{ t('contact.email') }}
       <input type="email" name="email" autocomplete="email">
+      <span class="contact-form__error" data-error-for="email"></span>
     </label>
     <label>
       {{ t('contact.phone') }}
@@ -35,9 +45,10 @@
     <label>
       {{ t('contact.message') }}
       <textarea name="message" rows="5"></textarea>
+      <span class="contact-form__error" data-error-for="message"></span>
     </label>
     <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <button type="submit" class="button button--primary" disabled>{{ t('contact.send') }}</button>
+    <button type="submit" class="button button--primary">{{ t('contact.send') }}</button>
   </form>
 
   <div class="contact-info">

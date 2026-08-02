@@ -85,6 +85,83 @@ document.addEventListener("DOMContentLoaded", () => {
   numbers.forEach((el) => observer.observe(el));
 });
 
+// contact form submit, posts JSON to /api/contact and shows inline validation
+// errors and a status message instead of reloading the page
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  if (!form) {
+    return;
+  }
+
+  const status = document.getElementById("contact-status");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const sendLabel = submitButton.textContent;
+
+  const errorMessages = {
+    name: form.dataset.errName,
+    email: form.dataset.errEmail,
+    message: form.dataset.errMessage,
+  };
+
+  const setStatus = (text, kind) => {
+    status.textContent = text || "";
+    status.hidden = !text;
+    status.className = "contact-form__status" + (kind ? ` contact-form__status--${kind}` : "");
+  };
+
+  const clearErrors = () => {
+    form.querySelectorAll(".contact-form__error").forEach((el) => {
+      el.textContent = "";
+    });
+  };
+
+  const showErrors = (errors) => {
+    clearErrors();
+    Object.keys(errors).forEach((field) => {
+      const el = form.querySelector(`[data-error-for="${field}"]`);
+      if (el) {
+        el.textContent = errorMessages[field] || "";
+      }
+    });
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    clearErrors();
+    setStatus("");
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    submitButton.disabled = true;
+    submitButton.textContent = form.dataset.msgSending;
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+
+      if (result.ok) {
+        form.reset();
+        setStatus(form.dataset.msgSuccess, "success");
+      } else if (result.errors) {
+        showErrors(result.errors);
+      } else if (response.status === 429) {
+        setStatus(form.dataset.msgRateLimited, "error");
+      } else {
+        setStatus(form.dataset.msgError, "error");
+      }
+    } catch (err) {
+      setStatus(form.dataset.msgError, "error");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = sendLabel;
+    }
+  });
+});
+
 // CTA click logging, fires in the background and never blocks the link from opening
 document.addEventListener("DOMContentLoaded", () => {
   if (!navigator.sendBeacon) {

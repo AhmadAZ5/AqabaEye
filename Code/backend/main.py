@@ -1,21 +1,37 @@
 import json
+import re
+import time
 from datetime import date, datetime
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request, Response
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from clicks import log_click, with_utm
 from config import settings
 from i18n import DEFAULT_LANG, SUPPORTED_LANGS, get_translation
+from mail import send_contact_email
 from sheets import get_attractions, get_faq, get_posts, get_settings, get_waterparks
 
 BACKEND_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BACKEND_DIR.parent / "frontend"
 LANG_COOKIE = "lang"
 COOKIE_MAX_AGE = 60 * 60 * 24 * 365
+EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+CONTACT_RATE_LIMIT_SECONDS = 60
+
+# per-IP cooldown for the contact form, in-memory since this runs as a single
+# free-tier instance, resets on deploy and that's fine for this scale
+_contact_last_submit: dict[str, float] = {}
+
+
+def client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for", "")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR / "static"), name="static")
@@ -177,6 +193,46 @@ async def contact(request: Request, lang: str):
             "title": contact_settings["address_ar"] if lang == "ar" else contact_settings["address_en"],
         }]
     return render(request, "contact.html", lang, faq=get_faq(), contact_settings=contact_settings, markers=markers)
+
+
+# contact form submit, validates then relays to CONTACT_EMAIL over SMTP,
+# a filled honeypot field gets a fake success so bots don't learn anything
+@app.post("/api/contact")
+async def api_contact(request: Request):
+    try:
+        payload = await request.json()
+    except Exception:
+        raise HTTPException(status_code=400)
+
+    if payload.get("company"):
+        return {"ok": True}
+
+    name = (payload.get("name") or "").strip()
+    email = (payload.get("email") or "").strip()
+    phone = (payload.get("phone") or "").strip()
+    message = (payload.get("message") or "").strip()
+
+    errors = {}
+    if not name:
+        errors["name"] = True
+    if not email or not EMAIL_RE.match(email):
+        errors["email"] = True
+    if not message:
+        errors["message"] = True
+    if errors:
+        return JSONResponse({"ok": False, "errors": errors}, status_code=400)
+
+    ip = client_ip(request)
+    now = time.monotonic()
+    last = _contact_last_submit.get(ip)
+    if last is not None and now - last < CONTACT_RATE_LIMIT_SECONDS:
+        return JSONResponse({"ok": False, "rate_limited": True}, status_code=429)
+    _contact_last_submit[ip] = now
+
+    sent = await send_contact_email(name, email, phone, message)
+    if not sent:
+        return JSONResponse({"ok": False, "server_error": True}, status_code=502)
+    return {"ok": True}
 
 
 # sendBeacon hits this on CTA click, fire and forget, never blocks the user

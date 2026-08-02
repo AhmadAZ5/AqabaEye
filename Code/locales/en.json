@@ -55,8 +55,17 @@
     "phone": "Phone (optional)",
     "message": "Message",
     "send": "Send message",
+    "sending": "Sending...",
     "faq_title": "Frequently asked questions",
-    "form_note": "The contact form isn't wired up yet — this is a Phase 1 preview."
+    "form_note": "We usually reply within 1 to 2 business days.",
+    "success": "Thanks! Your message has been sent, we'll get back to you soon.",
+    "error_generic": "Something went wrong. Please try again or email us directly.",
+    "rate_limited": "You've already sent a message recently. Please wait a moment before sending another.",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "message": "Please enter a message."
+    }
   },
   "map": {
     "google_maps": "Google Maps",
