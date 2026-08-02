@@ -1,6 +1,6 @@
 # Eye of Aqaba
 
-Hi, I'm Ahmad. This is Eye of Aqaba, a bilingual (Arabic/English) portal for Aqaba, Jordan, built as volunteer work for EntroGate.
+Hi, I'm Eng Awni. This is Eye of Aqaba, a bilingual (Arabic/English) portal for Aqaba, Jordan, built as volunteer work for EntroGate.
 
 The idea is simple: one place to see Aqaba's waterparks and attractions with real prices and hours, then get sent straight to the operator's own site to actually book. No middleman payments, no bookings held here, just a clean directory that points you the right way.
 
