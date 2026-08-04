@@ -43,13 +43,41 @@
       "partner_url": "https://sindbadjo.com/en/water-sports/",
       "phone": "+962 79 199 9182",
       "activities": [
-        {"name_ar": "قارب الموز", "name_en": "Banana Boat", "price": "من 8 دينار / from 8 JOD"},
-        {"name_ar": "الإطارات المطاطية", "name_en": "Inner Tubes", "price": "من 9 دينار / from 9 JOD"},
-        {"name_ar": "الفلاي فيش", "name_en": "Fly Fish", "price": "من 9 دينار / from 9 JOD"},
-        {"name_ar": "الكاياك ولوح التجديف", "name_en": "Kayaking / Stand Up Paddleboarding", "price": "من 10 دينار / from 10 JOD"},
-        {"name_ar": "التزلج على الماء", "name_en": "Water Skiing", "price": "من 18 دينار / from 18 JOD"},
-        {"name_ar": "الجيت سكي", "name_en": "Jet Skiing", "price": "من 30 دينار / from 30 JOD"},
-        {"name_ar": "الباراسيل والفلاي بورد", "name_en": "Parasailing & Fly Board", "price": "من 40 دينار / from 40 JOD"}
+        {
+          "name_ar": "قارب الموز",
+          "name_en": "Banana Boat",
+          "price": "من 8 دينار / from 8 JOD"
+        },
+        {
+          "name_ar": "الإطارات المطاطية",
+          "name_en": "Inner Tubes",
+          "price": "من 9 دينار / from 9 JOD"
+        },
+        {
+          "name_ar": "الفلاي فيش",
+          "name_en": "Fly Fish",
+          "price": "من 9 دينار / from 9 JOD"
+        },
+        {
+          "name_ar": "الكاياك ولوح التجديف",
+          "name_en": "Kayaking / Stand Up Paddleboarding",
+          "price": "من 10 دينار / from 10 JOD"
+        },
+        {
+          "name_ar": "التزلج على الماء",
+          "name_en": "Water Skiing",
+          "price": "من 18 دينار / from 18 JOD"
+        },
+        {
+          "name_ar": "الجيت سكي",
+          "name_en": "Jet Skiing",
+          "price": "من 30 دينار / from 30 JOD"
+        },
+        {
+          "name_ar": "الباراسيل والفلاي بورد",
+          "name_en": "Parasailing & Fly Board",
+          "price": "من 40 دينار / from 40 JOD"
+        }
       ],
       "image_urls": [
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/waterparks/sindbad-group-jordan-1.jpg",
@@ -124,8 +152,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "09:00 - 17:00",
-      "lat": 29.5177,
-      "lng": 34.9857,
+      "lat": 29.5255051,
+      "lng": 35.0016742,
       "partner_url": "http://www.seabreezeaqaba.com/",
       "image_urls": [
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/aquamarina-sea-breeze-co-1.jpg",
@@ -270,8 +298,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": null,
-      "lng": null,
+      "lat": 29.5255051,
+      "lng": 35.0016742,
       "partner_url": "https://www.aqabadive.com/booking/",
       "phone": "0792645333",
       "image_urls": [
@@ -295,8 +323,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": null,
-      "lng": null,
+      "lat": 29.5255051,
+      "lng": 35.0016742,
       "partner_url": "https://hammerheadaqaba.com/v2/",
       "phone": "07 8661 4182",
       "image_urls": [
@@ -320,8 +348,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": null,
-      "lng": null,
+      "lat": 29.4232928,
+      "lng": 34.9733835,
       "partner_url": "https://www.aqabadivingseastar.com/",
       "phone": "7978101000",
       "image_urls": [
@@ -350,12 +378,36 @@
       "partner_url": "https://www.aqabasharksbaydivers.com/",
       "phone": "0795843724",
       "activities": [
-        {"name_ar": "دورة الغواصين (2-3 أيام)", "name_en": "Scuba Divers Course (2-3 days)", "price": "300 دينار (شاطئ) / 400 دينار (قارب) — 300 JOD shore / 400 JOD boat"},
-        {"name_ar": "دورة المياه المفتوحة (3-5 أيام)", "name_en": "Open Water Course (3-5 days)", "price": "380 دينار (شاطئ) / 470 دينار (قارب) — 380 JOD shore / 470 JOD boat"},
-        {"name_ar": "رحلة غوص بالقارب (غطستان، معتمد)", "name_en": "Diving Boat Trip (2 dives, certified)", "price": "110 دينار / 110 JOD"},
-        {"name_ar": "غطسة تجريبية بالقارب (غير معتمد)", "name_en": "Introduction Dive Boat Trip (non-certified)", "price": "80 دينار / 80 JOD"},
-        {"name_ar": "رحلة سنوركلينغ بالقارب", "name_en": "Snorkeling Boat Trip", "price": "50 دينار / 50 JOD"},
-        {"name_ar": "غوص ليلي", "name_en": "Night Dive", "price": "50 دينار / 50 JOD"}
+        {
+          "name_ar": "دورة الغواصين (2-3 أيام)",
+          "name_en": "Scuba Divers Course (2-3 days)",
+          "price": "300 دينار (شاطئ) / 400 دينار (قارب) — 300 JOD shore / 400 JOD boat"
+        },
+        {
+          "name_ar": "دورة المياه المفتوحة (3-5 أيام)",
+          "name_en": "Open Water Course (3-5 days)",
+          "price": "380 دينار (شاطئ) / 470 دينار (قارب) — 380 JOD shore / 470 JOD boat"
+        },
+        {
+          "name_ar": "رحلة غوص بالقارب (غطستان، معتمد)",
+          "name_en": "Diving Boat Trip (2 dives, certified)",
+          "price": "110 دينار / 110 JOD"
+        },
+        {
+          "name_ar": "غطسة تجريبية بالقارب (غير معتمد)",
+          "name_en": "Introduction Dive Boat Trip (non-certified)",
+          "price": "80 دينار / 80 JOD"
+        },
+        {
+          "name_ar": "رحلة سنوركلينغ بالقارب",
+          "name_en": "Snorkeling Boat Trip",
+          "price": "50 دينار / 50 JOD"
+        },
+        {
+          "name_ar": "غوص ليلي",
+          "name_en": "Night Dive",
+          "price": "50 دينار / 50 JOD"
+        }
       ],
       "image_urls": [
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/aqaba-sharks-bay-divers-1.jpg",
@@ -383,12 +435,36 @@
       "partner_url": "https://aquaproaqaba.com/#courses",
       "phone": "7950445150",
       "activities": [
-        {"name_ar": "غوص المبتدئين (Discover Scuba)", "name_en": "Discover Scuba", "price": "يبدأ من 250 دينار / from 250 JOD"},
-        {"name_ar": "دورة غواص المياه المفتوحة", "name_en": "Open Water Diver", "price": "يبدأ من 350 دينار / from 350 JOD"},
-        {"name_ar": "دورة الغواص المتقدم", "name_en": "Advanced Open Water", "price": "يبدأ من 290 دينار / from 290 JOD"},
-        {"name_ar": "دورة الإنقاذ", "name_en": "Rescue Diver", "price": "يبدأ من 300 دينار / from 300 JOD"},
-        {"name_ar": "غوص الأطفال (Bubblemaker)", "name_en": "Bubblemaker for Kids", "price": "يبدأ من 300 دينار / from 300 JOD"},
-        {"name_ar": "دورة محترف الغوص (Divemaster)", "name_en": "Divemaster", "price": "يبدأ من 800 دينار / from 800 JOD"}
+        {
+          "name_ar": "غوص المبتدئين (Discover Scuba)",
+          "name_en": "Discover Scuba",
+          "price": "يبدأ من 250 دينار / from 250 JOD"
+        },
+        {
+          "name_ar": "دورة غواص المياه المفتوحة",
+          "name_en": "Open Water Diver",
+          "price": "يبدأ من 350 دينار / from 350 JOD"
+        },
+        {
+          "name_ar": "دورة الغواص المتقدم",
+          "name_en": "Advanced Open Water",
+          "price": "يبدأ من 290 دينار / from 290 JOD"
+        },
+        {
+          "name_ar": "دورة الإنقاذ",
+          "name_en": "Rescue Diver",
+          "price": "يبدأ من 300 دينار / from 300 JOD"
+        },
+        {
+          "name_ar": "غوص الأطفال (Bubblemaker)",
+          "name_en": "Bubblemaker for Kids",
+          "price": "يبدأ من 300 دينار / from 300 JOD"
+        },
+        {
+          "name_ar": "دورة محترف الغوص (Divemaster)",
+          "name_en": "Divemaster",
+          "price": "يبدأ من 800 دينار / from 800 JOD"
+        }
       ],
       "image_urls": [
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/aquapro-dive-center-1.jpg",
@@ -411,8 +487,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": null,
-      "lng": null,
+      "lat": 29.5528724,
+      "lng": 34.9874796,
       "partner_url": "https://www.barracudaservice.com/",
       "phone": "+962 79 588 1170",
       "image_urls": [
@@ -462,13 +538,41 @@
       "partner_url": "https://aqabaseahorsedive.com/",
       "phone": "0782338850",
       "activities": [
-        {"name_ar": "رحلة غوص بالقارب", "name_en": "Diving Boat Trip", "price": "70 دينار / 70 JOD"},
-        {"name_ar": "رحلة سنوركلينغ بالقارب", "name_en": "Snorkeling Boat Trip", "price": "35 دينار / 35 JOD"},
-        {"name_ar": "غطسة تجريبية", "name_en": "Try Dive", "price": "25 دينار / 25 JOD"},
-        {"name_ar": "غوص ليلي", "name_en": "Night Dive", "price": "45 دينار / 45 JOD"},
-        {"name_ar": "دورة غواص المياه المفتوحة", "name_en": "Open Water Diver", "price": "350 دينار / 350 JOD"},
-        {"name_ar": "دورة الإنقاذ", "name_en": "Rescue Diver", "price": "350 دينار / 350 JOD"},
-        {"name_ar": "دورة محترف الغوص (Divemaster)", "name_en": "Divemaster", "price": "700 دينار / 700 JOD"}
+        {
+          "name_ar": "رحلة غوص بالقارب",
+          "name_en": "Diving Boat Trip",
+          "price": "70 دينار / 70 JOD"
+        },
+        {
+          "name_ar": "رحلة سنوركلينغ بالقارب",
+          "name_en": "Snorkeling Boat Trip",
+          "price": "35 دينار / 35 JOD"
+        },
+        {
+          "name_ar": "غطسة تجريبية",
+          "name_en": "Try Dive",
+          "price": "25 دينار / 25 JOD"
+        },
+        {
+          "name_ar": "غوص ليلي",
+          "name_en": "Night Dive",
+          "price": "45 دينار / 45 JOD"
+        },
+        {
+          "name_ar": "دورة غواص المياه المفتوحة",
+          "name_en": "Open Water Diver",
+          "price": "350 دينار / 350 JOD"
+        },
+        {
+          "name_ar": "دورة الإنقاذ",
+          "name_en": "Rescue Diver",
+          "price": "350 دينار / 350 JOD"
+        },
+        {
+          "name_ar": "دورة محترف الغوص (Divemaster)",
+          "name_en": "Divemaster",
+          "price": "700 دينار / 700 JOD"
+        }
       ],
       "image_urls": [
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/sea-horse-dive-center-1.jpg",
@@ -491,8 +595,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "09:00 - 17:00",
-      "lat": null,
-      "lng": null,
+      "lat": 29.5255051,
+      "lng": 35.0016742,
       "partner_url": "https://jordan-travel.com/",
       "image_urls": [],
       "is_featured": false,
@@ -697,93 +801,325 @@
         "icon": "🏖️",
         "title_ar": "أماكن الاستجمام",
         "title_en": "Relaxation spots",
-        "items_ar": ["شاطئ برنيس", "شاطئ آيلة", "الشاطئ الجنوبي", "كورنيش العقبة", "الواجهة البحرية"],
-        "items_en": ["Berenice Beach", "Ayla Beach", "South Beach", "Aqaba Corniche", "The Waterfront"]
+        "items_ar": [
+          "شاطئ برنيس",
+          "شاطئ آيلة",
+          "الشاطئ الجنوبي",
+          "كورنيش العقبة",
+          "الواجهة البحرية"
+        ],
+        "items_en": [
+          "Berenice Beach",
+          "Ayla Beach",
+          "South Beach",
+          "Aqaba Corniche",
+          "The Waterfront"
+        ]
       },
       {
         "icon": "🤿",
         "title_ar": "أماكن الغوص والأنشطة البحرية",
         "title_en": "Diving & marine activity spots",
-        "items_ar": ["حديقة اليابان", "حطام السفينة سيدار برايد", "الشعاب المرجانية", "السنوركلينغ", "القوارب الزجاجية", "رحلات اليخوت", "الجيت سكي", "الباراسيل", "رحلات الصيد"],
-        "items_en": ["Japanese Garden", "Cedar Pride shipwreck", "Coral reefs", "Snorkeling", "Glass-bottom boats", "Yacht trips", "Jet skiing", "Parasailing", "Fishing trips"]
+        "items_ar": [
+          "حديقة اليابان",
+          "حطام السفينة سيدار برايد",
+          "الشعاب المرجانية",
+          "السنوركلينغ",
+          "القوارب الزجاجية",
+          "رحلات اليخوت",
+          "الجيت سكي",
+          "الباراسيل",
+          "رحلات الصيد"
+        ],
+        "items_en": [
+          "Japanese Garden",
+          "Cedar Pride shipwreck",
+          "Coral reefs",
+          "Snorkeling",
+          "Glass-bottom boats",
+          "Yacht trips",
+          "Jet skiing",
+          "Parasailing",
+          "Fishing trips"
+        ]
       },
       {
         "icon": "📸",
         "title_ar": "أفضل أماكن التصوير",
         "title_en": "Best photography spots",
-        "items_ar": ["قلعة العقبة", "مرسى آيلة", "الواجهة البحرية", "الشاطئ الجنوبي وقت الغروب", "الإطلالات المطلة على خليج العقبة", "منتجع تالا باي"],
-        "items_en": ["Aqaba Castle", "Ayla Marina", "The Waterfront", "South Beach at sunset", "Views over the Gulf of Aqaba", "Tala Bay Resort"]
+        "items_ar": [
+          "قلعة العقبة",
+          "مرسى آيلة",
+          "الواجهة البحرية",
+          "الشاطئ الجنوبي وقت الغروب",
+          "الإطلالات المطلة على خليج العقبة",
+          "منتجع تالا باي"
+        ],
+        "items_en": [
+          "Aqaba Castle",
+          "Ayla Marina",
+          "The Waterfront",
+          "South Beach at sunset",
+          "Views over the Gulf of Aqaba",
+          "Tala Bay Resort"
+        ]
       },
       {
         "icon": "👨‍👩‍👧‍👦",
         "title_ar": "أماكن مناسبة للعائلات",
         "title_en": "Family-friendly spots",
-        "items_ar": ["آيلة", "مرصد طيور العقبة", "الحدائق العامة مثل حديقة الأميرة بسمة", "الشواطئ العامة مثل الشاطئ الجنوبي وشاطئ B12 وشاطئ برنيس", "مناطق ألعاب الأطفال"],
-        "items_en": ["Ayla", "Aqaba Bird Observatory", "Public parks such as Princess Basma Park", "Public beaches such as South Beach, B12 Beach, and Berenice Beach", "Kids' play areas"]
+        "items_ar": [
+          "آيلة",
+          "مرصد طيور العقبة",
+          "الحدائق العامة مثل حديقة الأميرة بسمة",
+          "الشواطئ العامة مثل الشاطئ الجنوبي وشاطئ B12 وشاطئ برنيس",
+          "مناطق ألعاب الأطفال"
+        ],
+        "items_en": [
+          "Ayla",
+          "Aqaba Bird Observatory",
+          "Public parks such as Princess Basma Park",
+          "Public beaches such as South Beach, B12 Beach, and Berenice Beach",
+          "Kids' play areas"
+        ]
       },
       {
         "icon": "🎉",
         "title_ar": "أماكن الترفيه",
         "title_en": "Entertainment spots",
-        "items_ar": ["الجيت سكي", "الباراسيل", "استئجار القوارب واليخوت", "رحلات الغوص والسنوركلينغ", "رحلات الصيد", "التنزه في الكورنيش والأسواق"],
-        "items_en": ["Jet skiing", "Parasailing", "Boat & yacht rental", "Diving & snorkeling trips", "Fishing trips", "Strolling the Corniche and markets"]
+        "items_ar": [
+          "الجيت سكي",
+          "الباراسيل",
+          "استئجار القوارب واليخوت",
+          "رحلات الغوص والسنوركلينغ",
+          "رحلات الصيد",
+          "التنزه في الكورنيش والأسواق"
+        ],
+        "items_en": [
+          "Jet skiing",
+          "Parasailing",
+          "Boat & yacht rental",
+          "Diving & snorkeling trips",
+          "Fishing trips",
+          "Strolling the Corniche and markets"
+        ]
       },
       {
         "icon": "🛍️",
         "title_ar": "أماكن التسوق",
         "title_en": "Shopping spots",
-        "items_ar": ["السوق الشعبي", "وسط مدينة العقبة", "محلات آيلة", "محلات الهدايا التذكارية", "محلات التوابل والعطور"],
-        "items_en": ["The popular souq", "Downtown Aqaba", "Ayla shops", "Souvenir shops", "Spice and perfume shops"]
+        "items_ar": [
+          "السوق الشعبي",
+          "وسط مدينة العقبة",
+          "محلات آيلة",
+          "محلات الهدايا التذكارية",
+          "محلات التوابل والعطور"
+        ],
+        "items_en": [
+          "The popular souq",
+          "Downtown Aqaba",
+          "Ayla shops",
+          "Souvenir shops",
+          "Spice and perfume shops"
+        ]
       },
       {
         "icon": "🏛️",
         "title_ar": "الأماكن التاريخية",
         "title_en": "Historical sites",
-        "items_ar": ["قلعة العقبة", "متحف آثار العقبة", "مسجد الشريف الحسين بن علي", "الكنيسة البيزنطينية"],
-        "items_en": ["Aqaba Castle", "Aqaba Archaeological Museum", "Sharif Hussein bin Ali Mosque", "The Byzantine Church"]
+        "items_ar": [
+          "قلعة العقبة",
+          "متحف آثار العقبة",
+          "مسجد الشريف الحسين بن علي",
+          "الكنيسة البيزنطينية"
+        ],
+        "items_en": [
+          "Aqaba Castle",
+          "Aqaba Archaeological Museum",
+          "Sharif Hussein bin Ali Mosque",
+          "The Byzantine Church"
+        ]
       },
       {
         "icon": "🍽️",
         "title_ar": "أشهر الأكلات",
         "title_en": "Popular dishes",
-        "items_ar": ["الصيادية", "سمك الهامور", "النهاش", "الروبيان (الجمبري)", "الكاليماري", "المحار", "المنسف", "الزرب"],
-        "items_en": ["Sayadieh", "Grouper", "Snapper", "Shrimp", "Calamari", "Oysters", "Mansaf", "Zarb"]
+        "items_ar": [
+          "الصيادية",
+          "سمك الهامور",
+          "النهاش",
+          "الروبيان (الجمبري)",
+          "الكاليماري",
+          "المحار",
+          "المنسف",
+          "الزرب"
+        ],
+        "items_en": [
+          "Sayadieh",
+          "Grouper",
+          "Snapper",
+          "Shrimp",
+          "Calamari",
+          "Oysters",
+          "Mansaf",
+          "Zarb"
+        ]
       },
       {
         "icon": "🍰",
         "title_ar": "أشهر الحلويات",
         "title_en": "Popular desserts",
-        "items_ar": ["الكنافة النابلسية", "البقلاوة", "المعمول", "البوظة العربية", "حلوى الهوح"],
-        "items_en": ["Nabulsi kunafa", "Baklava", "Maamoul", "Arabic ice cream (booza)", "Halawet al-Hoh"]
+        "items_ar": [
+          "الكنافة النابلسية",
+          "البقلاوة",
+          "المعمول",
+          "البوظة العربية",
+          "حلوى الهوح"
+        ],
+        "items_en": [
+          "Nabulsi kunafa",
+          "Baklava",
+          "Maamoul",
+          "Arabic ice cream (booza)",
+          "Halawet al-Hoh"
+        ]
       }
     ],
     "prices": [
-      {"label_ar": "الشاطئ العام", "label_en": "Public beach", "value_ar": "مجاني", "value_en": "Free"},
-      {"label_ar": "دخول شاطئ خاص", "label_en": "Private beach entry", "value_ar": "10–15 دينارًا", "value_en": "10–15 JOD"},
-      {"label_ar": "القارب الزجاجي", "label_en": "Glass-bottom boat", "value_ar": "15–45 دينارًا", "value_en": "15–45 JOD"},
-      {"label_ar": "الغوص للمبتدئين", "label_en": "Diving for beginners", "value_ar": "35–50 دينارًا", "value_en": "35–50 JOD"},
-      {"label_ar": "الجيت سكي", "label_en": "Jet ski", "value_ar": "30–40 دينارًا", "value_en": "30–40 JOD"},
-      {"label_ar": "الباراسيل", "label_en": "Parasailing", "value_ar": "30–50 دينارًا", "value_en": "30–50 JOD"},
-      {"label_ar": "رحلة صيد جماعية", "label_en": "Group fishing trip", "value_ar": "40–70 دينارًا للشخص", "value_en": "40–70 JOD per person"},
-      {"label_ar": "قارب صيد خاص", "label_en": "Private fishing boat", "value_ar": "يبدأ من 180 دينارًا", "value_en": "Starts from 180 JOD"},
-      {"label_ar": "استئجار يخت", "label_en": "Yacht rental", "value_ar": "يبدأ من 120 دينارًا", "value_en": "Starts from 120 JOD"},
-      {"label_ar": "وجبة في مطعم شعبي", "label_en": "Meal at a local restaurant", "value_ar": "5–8 دنانير", "value_en": "5–8 JOD"},
-      {"label_ar": "وجبة بحرية", "label_en": "Seafood meal", "value_ar": "10–20 دينارًا للشخص", "value_en": "10–20 JOD per person"},
-      {"label_ar": "الحلويات", "label_en": "Desserts", "value_ar": "1–4 دنانير", "value_en": "1–4 JOD"}
+      {
+        "label_ar": "الشاطئ العام",
+        "label_en": "Public beach",
+        "value_ar": "مجاني",
+        "value_en": "Free"
+      },
+      {
+        "label_ar": "دخول شاطئ خاص",
+        "label_en": "Private beach entry",
+        "value_ar": "10–15 دينارًا",
+        "value_en": "10–15 JOD"
+      },
+      {
+        "label_ar": "القارب الزجاجي",
+        "label_en": "Glass-bottom boat",
+        "value_ar": "15–45 دينارًا",
+        "value_en": "15–45 JOD"
+      },
+      {
+        "label_ar": "الغوص للمبتدئين",
+        "label_en": "Diving for beginners",
+        "value_ar": "35–50 دينارًا",
+        "value_en": "35–50 JOD"
+      },
+      {
+        "label_ar": "الجيت سكي",
+        "label_en": "Jet ski",
+        "value_ar": "30–40 دينارًا",
+        "value_en": "30–40 JOD"
+      },
+      {
+        "label_ar": "الباراسيل",
+        "label_en": "Parasailing",
+        "value_ar": "30–50 دينارًا",
+        "value_en": "30–50 JOD"
+      },
+      {
+        "label_ar": "رحلة صيد جماعية",
+        "label_en": "Group fishing trip",
+        "value_ar": "40–70 دينارًا للشخص",
+        "value_en": "40–70 JOD per person"
+      },
+      {
+        "label_ar": "قارب صيد خاص",
+        "label_en": "Private fishing boat",
+        "value_ar": "يبدأ من 180 دينارًا",
+        "value_en": "Starts from 180 JOD"
+      },
+      {
+        "label_ar": "استئجار يخت",
+        "label_en": "Yacht rental",
+        "value_ar": "يبدأ من 120 دينارًا",
+        "value_en": "Starts from 120 JOD"
+      },
+      {
+        "label_ar": "وجبة في مطعم شعبي",
+        "label_en": "Meal at a local restaurant",
+        "value_ar": "5–8 دنانير",
+        "value_en": "5–8 JOD"
+      },
+      {
+        "label_ar": "وجبة بحرية",
+        "label_en": "Seafood meal",
+        "value_ar": "10–20 دينارًا للشخص",
+        "value_en": "10–20 JOD per person"
+      },
+      {
+        "label_ar": "الحلويات",
+        "label_en": "Desserts",
+        "value_ar": "1–4 دنانير",
+        "value_en": "1–4 JOD"
+      }
     ],
     "congestion": [
-      {"month_ar": "يناير", "month_en": "January", "level": "low"},
-      {"month_ar": "فبراير", "month_en": "February", "level": "low"},
-      {"month_ar": "مارس", "month_en": "March", "level": "high"},
-      {"month_ar": "أبريل", "month_en": "April", "level": "high"},
-      {"month_ar": "مايو", "month_en": "May", "level": "medium"},
-      {"month_ar": "يونيو", "month_en": "June", "level": "low"},
-      {"month_ar": "يوليو", "month_en": "July", "level": "high"},
-      {"month_ar": "أغسطس", "month_en": "August", "level": "high"},
-      {"month_ar": "سبتمبر", "month_en": "September", "level": "medium"},
-      {"month_ar": "أكتوبر", "month_en": "October", "level": "high"},
-      {"month_ar": "نوفمبر", "month_en": "November", "level": "medium"},
-      {"month_ar": "ديسمبر", "month_en": "December", "level": "medium"}
+      {
+        "month_ar": "يناير",
+        "month_en": "January",
+        "level": "low"
+      },
+      {
+        "month_ar": "فبراير",
+        "month_en": "February",
+        "level": "low"
+      },
+      {
+        "month_ar": "مارس",
+        "month_en": "March",
+        "level": "high"
+      },
+      {
+        "month_ar": "أبريل",
+        "month_en": "April",
+        "level": "high"
+      },
+      {
+        "month_ar": "مايو",
+        "month_en": "May",
+        "level": "medium"
+      },
+      {
+        "month_ar": "يونيو",
+        "month_en": "June",
+        "level": "low"
+      },
+      {
+        "month_ar": "يوليو",
+        "month_en": "July",
+        "level": "high"
+      },
+      {
+        "month_ar": "أغسطس",
+        "month_en": "August",
+        "level": "high"
+      },
+      {
+        "month_ar": "سبتمبر",
+        "month_en": "September",
+        "level": "medium"
+      },
+      {
+        "month_ar": "أكتوبر",
+        "month_en": "October",
+        "level": "high"
+      },
+      {
+        "month_ar": "نوفمبر",
+        "month_en": "November",
+        "level": "medium"
+      },
+      {
+        "month_ar": "ديسمبر",
+        "month_en": "December",
+        "level": "medium"
+      }
     ]
   },
   "faq": [
@@ -803,7 +1139,7 @@
     }
   ],
   "settings": {
-    "phone": "+962 000 000 000",
+    "phone": "+962 79 671 7433",
     "email": "Eyeofaqaba@gmail.com",
     "address_ar": "العقبة، الأردن",
     "address_en": "Aqaba, Jordan",
