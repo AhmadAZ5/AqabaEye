@@ -1,6 +1,9 @@
 <header class="site-header">
   <div class="container site-header__row">
-    <a class="site-header__brand" href="/{{ lang }}/">{{ site_name_ar if lang == 'ar' else site_name_en }}</a>
+    <a class="site-header__brand" href="/{{ lang }}/">
+      <img class="site-header__logo" src="/static/logo-mark.png" alt="" width="40" height="40" loading="eager">
+      {{ site_name_ar if lang == 'ar' else site_name_en }}
+    </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span><span></span>
       <span class="sr-only">{{ t('nav.home') }}</span>

@@ -88,11 +88,20 @@ a {
 }
 
 .site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--color-white);
   font-weight: 700;
   font-size: 1.15rem;
   text-decoration: none;
   margin-inline-end: auto;
+}
+
+.site-header__logo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
 }
 
 .site-nav {
