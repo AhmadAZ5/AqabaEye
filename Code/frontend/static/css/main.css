@@ -684,3 +684,58 @@ html.js .reveal.revealed {
 .site-footer__meta {
   color: rgba(246, 239, 227, 0.7);
 }
+
+/* Best-time-to-visit congestion-by-month grid */
+.congestion-legend {
+  display: flex;
+  gap: var(--space-2);
+  font-size: 0.85rem;
+}
+
+.congestion-legend__item::before {
+  content: "";
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  margin-inline-end: 0.35em;
+}
+
+.congestion-legend__item--low::before {
+  background: #3fa34d;
+}
+
+.congestion-legend__item--medium::before {
+  background: #e0a72c;
+}
+
+.congestion-legend__item--high::before {
+  background: var(--color-coral);
+}
+
+.congestion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: var(--space-1);
+  margin: var(--space-3) 0;
+}
+
+.congestion-grid__month {
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-white);
+}
+
+.congestion-grid__month--low {
+  background: #3fa34d;
+}
+
+.congestion-grid__month--medium {
+  background: #e0a72c;
+}
+
+.congestion-grid__month--high {
+  background: var(--color-coral);
+}

@@ -13,7 +13,15 @@ from clicks import log_click, with_utm
 from config import settings
 from i18n import DEFAULT_LANG, SUPPORTED_LANGS, get_translation
 from mail import send_contact_email
-from sheets import get_attractions, get_faq, get_posts, get_settings, get_waterparks
+from sheets import (
+    get_attractions,
+    get_best_time_guide,
+    get_car_rentals,
+    get_faq,
+    get_posts,
+    get_settings,
+    get_waterparks,
+)
 
 BACKEND_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BACKEND_DIR.parent / "frontend"
@@ -49,7 +57,12 @@ def resolve_lang(request: Request) -> str:
 
 
 def is_stale(last_verified: str) -> bool:
-    verified_date = datetime.strptime(last_verified, "%Y-%m-%d").date()
+    # an unparseable date from a bad sheet row is treated as stale rather than
+    # crashing the page
+    try:
+        verified_date = datetime.strptime(last_verified, "%Y-%m-%d").date()
+    except (TypeError, ValueError):
+        return True
     return (date.today() - verified_date).days > 30
 
 
@@ -58,11 +71,16 @@ def is_stale(last_verified: str) -> bool:
 def venue_markers(venues: list[dict], lang: str, href_prefix: str | None = None) -> list[dict]:
     markers = []
     for v in venues:
-        if v.get("lat") is None or v.get("lng") is None:
+        try:
+            lat = float(v.get("lat"))
+            lng = float(v.get("lng"))
+        except (TypeError, ValueError):
+            continue
+        if lat == 0 and lng == 0:
             continue
         marker = {
-            "lat": v["lat"],
-            "lng": v["lng"],
+            "lat": lat,
+            "lng": lng,
             "title": v["name_ar"] if lang == "ar" else v["name_en"],
         }
         if href_prefix:
@@ -163,6 +181,21 @@ async def attraction_detail(request: Request, lang: str, slug: str):
     )
 
 
+@app.get("/{lang}/car-rentals", response_class=HTMLResponse)
+async def car_rentals_list(request: Request, lang: str):
+    published = [c for c in get_car_rentals() if c["is_published"]]
+    return render(request, "car_rentals.html", lang, car_rentals=published)
+
+
+@app.get("/{lang}/car-rentals/{slug}", response_class=HTMLResponse)
+async def car_rental_detail(request: Request, lang: str, slug: str):
+    match = next((c for c in get_car_rentals() if c["slug"] == slug and c["is_published"]), None)
+    if match is None:
+        raise HTTPException(status_code=404)
+    cta_url = with_utm(match["partner_url"], slug)
+    return render(request, "car_rental_detail.html", lang, car_rental=match, cta_url=cta_url)
+
+
 @app.get("/{lang}/explore", response_class=HTMLResponse)
 async def explore_list(request: Request, lang: str):
     published = [p for p in get_posts() if p["is_published"]]
@@ -174,6 +207,8 @@ async def post_detail(request: Request, lang: str, slug: str):
     match = next((p for p in get_posts() if p["slug"] == slug and p["is_published"]), None)
     if match is None:
         raise HTTPException(status_code=404)
+    if slug == "best-time-to-visit-aqaba":
+        return render(request, "best_time_guide.html", lang, post=match, guide=get_best_time_guide())
     return render(request, "post.html", lang, post=match)
 
 
@@ -259,7 +294,11 @@ async def api_click(request: Request):
 @app.get("/go/{slug}")
 async def go(request: Request, slug: str):
     match = next(
-        (v for v in get_waterparks() + get_attractions() if v["slug"] == slug and v["is_published"]),
+        (
+            v
+            for v in get_waterparks() + get_attractions() + get_car_rentals()
+            if v["slug"] == slug and v["is_published"]
+        ),
         None,
     )
     if match is None:

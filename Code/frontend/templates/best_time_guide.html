@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% set title = post.title_ar if lang == 'ar' else post.title_en %}
+
+{% block title %}{{ title }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ post.body_ar if lang == 'ar' else post.body_en }}{% endblock %}
+
+{% block content %}
+<article class="detail container">
+  {% if post.cover_image %}
+  <img class="detail__media" src="{{ post.cover_image }}" alt="{{ title }}">
+  {% endif %}
+  <h1>{{ title }}</h1>
+  <p class="detail__description">{{ post.body_ar if lang == 'ar' else post.body_en }}</p>
+
+  <section class="section--narrow">
+    <h2>{{ t('best_time_guide.time_blocks_title') }}</h2>
+    <dl class="faq">
+      {% for block in guide.time_blocks %}
+      <div class="faq__item">
+        <dt>{{ block.icon }} {{ block.range_ar if lang == 'ar' else block.range_en }}</dt>
+        <dd>{{ block.text_ar if lang == 'ar' else block.text_en }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+
+  <section class="section">
+    <h2>{{ t('best_time_guide.groups_title') }}</h2>
+    <div class="grid">
+      {% for group in guide.groups %}
+      <div class="card reveal" style="transition-delay: {{ loop.index0 * 80 }}ms">
+        <div class="card__body">
+          <h3 class="card__title">{{ group.icon }} {{ group.title_ar if lang == 'ar' else group.title_en }}</h3>
+          <ul class="card__meta">
+            {% for item in (group.items_ar if lang == 'ar' else group.items_en) %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section--narrow">
+    <h2>{{ t('best_time_guide.prices_title') }}</h2>
+    <dl class="detail__facts">
+      {% for price in guide.prices %}
+      <div>
+        <dt>{{ price.label_ar if lang == 'ar' else price.label_en }}</dt>
+        <dd>{{ price.value_ar if lang == 'ar' else price.value_en }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+
+  <section class="section--narrow">
+    <h2>{{ t('best_time_guide.congestion_title') }}</h2>
+    <p class="congestion-legend">
+      <span class="congestion-legend__item congestion-legend__item--low">{{ t('best_time_guide.legend_low') }}</span>
+      <span class="congestion-legend__item congestion-legend__item--medium">{{ t('best_time_guide.legend_medium') }}</span>
+      <span class="congestion-legend__item congestion-legend__item--high">{{ t('best_time_guide.legend_high') }}</span>
+    </p>
+    <div class="congestion-grid">
+      {% for month in guide.congestion %}
+      <div class="congestion-grid__month congestion-grid__month--{{ month.level }}">
+        {{ month.month_ar if lang == 'ar' else month.month_en }}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if guide.phone %}
+  <a class="button button--primary" href="tel:{{ guide.phone }}">{{ t('best_time_guide.call_us') }} {{ guide.phone }}</a>
+  {% endif %}
+</article>
+{% endblock %}

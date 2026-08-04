@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% set name = car_rental.name_ar if lang == 'ar' else car_rental.name_en %}
+{% set description = car_rental.description_ar if lang == 'ar' else car_rental.description_en %}
+
+{% block title %}{{ name }} &mdash; {{ site_name_ar if lang == 'ar' else site_name_en }}{% endblock %}
+{% block description %}{{ car_rental.summary_ar if lang == 'ar' else car_rental.summary_en }}{% endblock %}
+
+{% block content %}
+<article class="detail container">
+  {% if car_rental.image_urls %}
+  <img class="detail__media" src="{{ car_rental.image_urls[0] }}" alt="{{ name }}">
+  {% endif %}
+
+  <h1>{{ name }}</h1>
+  <p class="detail__description">{{ description }}</p>
+
+  <a class="button button--primary js-track-click" data-click-slug="{{ car_rental.slug }}" data-click-lang="{{ lang }}"
+     href="{{ cta_url }}" target="_blank" rel="noopener">
+    {{ t('car_rentals.cta') }}
+  </a>
+
+  {% if car_rental.phone %}
+  <a class="button" href="tel:{{ car_rental.phone }}">{{ t('car_rentals.call_us') }} {{ car_rental.phone }}</a>
+  {% endif %}
+</article>
+{% endblock %}

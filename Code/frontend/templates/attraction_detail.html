@@ -36,10 +36,26 @@
     {% if is_stale(attraction.last_verified) %}&mdash; {{ t('attractions.may_have_changed') }}{% endif %}
   </p>
 
+  {% if attraction.activities %}
+  <h2>{{ t('attractions.activities_title') }}</h2>
+  <dl class="faq">
+    {% for act in attraction.activities %}
+    <div class="faq__item">
+      <dt>{{ act.name_ar if lang == 'ar' else act.name_en }}</dt>
+      <dd>{{ act.price }}</dd>
+    </div>
+    {% endfor %}
+  </dl>
+  {% endif %}
+
   <a class="button button--primary js-track-click" data-click-slug="{{ attraction.slug }}" data-click-lang="{{ lang }}"
      href="{{ cta_url }}" target="_blank" rel="noopener">
     {{ t('attractions.cta') }}
   </a>
+
+  {% if attraction.phone %}
+  <a class="button" href="tel:{{ attraction.phone }}">{{ t('attractions.call_us') }} {{ attraction.phone }}</a>
+  {% endif %}
 
   {% if markers %}
   <div id="venue-map" class="venue-map" data-markers="{{ markers_json }}"

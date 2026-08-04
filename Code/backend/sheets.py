@@ -67,10 +67,33 @@ def _parse_venue_row(row: dict) -> dict:
         "lat": float(row["lat"]) if row["lat"] else None,
         "lng": float(row["lng"]) if row["lng"] else None,
         "partner_url": row["partner_url"],
+        "phone": row.get("phone", ""),
+        # optional list of {name_ar, name_en, price} — no sheet column for this yet,
+        # populated by hand in snapshot.json where a venue's own site publishes real prices
+        "activities": [],
         "image_urls": [u.strip() for u in row["image_urls"].split("|") if u.strip()],
         "is_featured": _to_bool(row["is_featured"]),
         "is_published": _to_bool(row["is_published"]),
         "last_verified": row["last_verified"].strip(),
+    }
+
+
+# lighter shape than a venue: no admission price/hours/coordinates, none of
+# those concepts fit a car rental company
+def _parse_car_rental_row(row: dict) -> dict:
+    return {
+        "slug": row["slug"].strip(),
+        "name_ar": row["name_ar"],
+        "name_en": row["name_en"],
+        "summary_ar": row["summary_ar"],
+        "summary_en": row["summary_en"],
+        "description_ar": row["description_ar"],
+        "description_en": row["description_en"],
+        "phone": row.get("phone", ""),
+        "partner_url": row["partner_url"],
+        "image_urls": [u.strip() for u in row["image_urls"].split("|") if u.strip()],
+        "is_featured": _to_bool(row["is_featured"]),
+        "is_published": _to_bool(row["is_published"]),
     }
 
 
@@ -122,6 +145,11 @@ def get_attractions() -> list[dict]:
     return [_parse_venue_row(r) for r in rows] if rows is not None else _snapshot()["attractions"]
 
 
+def get_car_rentals() -> list[dict]:
+    rows = _fetch_rows("car_rentals", settings.sheet_csv_car_rentals)
+    return [_parse_car_rental_row(r) for r in rows] if rows is not None else _snapshot()["car_rentals"]
+
+
 def get_posts() -> list[dict]:
     rows = _fetch_rows("posts", settings.sheet_csv_posts)
     return [_parse_post_row(r) for r in rows] if rows is not None else _snapshot()["posts"]
@@ -135,3 +163,8 @@ def get_faq() -> list[dict]:
 def get_settings() -> dict:
     rows = _fetch_rows("settings", settings.sheet_csv_settings)
     return _parse_settings_rows(rows) if rows is not None else _snapshot()["settings"]
+
+
+# no sheet tab backs this one, it's hand-authored content living only in the snapshot
+def get_best_time_guide() -> dict:
+    return _snapshot().get("best_time_guide", {})

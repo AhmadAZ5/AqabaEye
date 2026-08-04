@@ -36,10 +36,26 @@
     {% if is_stale(waterpark.last_verified) %}&mdash; {{ t('waterparks.may_have_changed') }}{% endif %}
   </p>
 
+  {% if waterpark.activities %}
+  <h2>{{ t('waterparks.activities_title') }}</h2>
+  <dl class="faq">
+    {% for act in waterpark.activities %}
+    <div class="faq__item">
+      <dt>{{ act.name_ar if lang == 'ar' else act.name_en }}</dt>
+      <dd>{{ act.price }}</dd>
+    </div>
+    {% endfor %}
+  </dl>
+  {% endif %}
+
   <a class="button button--primary js-track-click" data-click-slug="{{ waterpark.slug }}" data-click-lang="{{ lang }}"
      href="{{ cta_url }}" target="_blank" rel="noopener">
     {{ t('waterparks.cta') }}
   </a>
+
+  {% if waterpark.phone %}
+  <a class="button" href="tel:{{ waterpark.phone }}">{{ t('waterparks.call_us') }} {{ waterpark.phone }}</a>
+  {% endif %}
 
   {% if markers %}
   <div id="venue-map" class="venue-map" data-markers="{{ markers_json }}"

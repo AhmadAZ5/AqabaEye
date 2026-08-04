@@ -3,6 +3,7 @@
     "home": "Home",
     "waterparks": "Waterparks",
     "attractions": "Attractions",
+    "car_rentals": "Car Rentals",
     "explore": "Explore",
     "about": "About",
     "contact": "Contact"
@@ -14,7 +15,7 @@
     "stat_venues": "Verified venues",
     "stat_languages": "Languages",
     "stat_fees": "Booking fees",
-    "featured_title": "Featured waterparks",
+    "featured_title": "Featured Waterparks",
     "featured_attractions_title": "Featured attractions",
     "posts_title": "From the blog",
     "view_all": "View all"
@@ -27,7 +28,9 @@
     "hours": "Hours",
     "cta": "Book on partner site",
     "last_verified": "Last verified: {date}",
-    "may_have_changed": "Prices may have changed since this was last checked"
+    "may_have_changed": "Prices may have changed since this was last checked",
+    "call_us": "Call us",
+    "activities_title": "Activities & Prices"
   },
   "attractions": {
     "title": "Attractions",
@@ -37,7 +40,15 @@
     "hours": "Hours",
     "cta": "Book on partner site",
     "last_verified": "Last verified: {date}",
-    "may_have_changed": "Prices may have changed since this was last checked"
+    "may_have_changed": "Prices may have changed since this was last checked",
+    "call_us": "Call us",
+    "activities_title": "Activities & Prices"
+  },
+  "car_rentals": {
+    "title": "Car Rentals",
+    "subtitle": "Car rental companies with a presence in Aqaba.",
+    "cta": "Visit rental site",
+    "call_us": "Call us"
   },
   "explore": {
     "title": "Explore Aqaba",
@@ -70,6 +81,17 @@
   "map": {
     "google_maps": "Google Maps",
     "apple_maps": "Apple Maps"
+  },
+  "best_time_guide": {
+    "title": "Best Time to Visit Aqaba",
+    "time_blocks_title": "Best times of day",
+    "groups_title": "Where to go",
+    "prices_title": "Approximate prices",
+    "congestion_title": "Crowds by month",
+    "legend_low": "Quieter",
+    "legend_medium": "Moderate",
+    "legend_high": "Busy",
+    "call_us": "Call us"
   },
   "footer": {
     "tagline": "One gate to explore Aqaba.",
