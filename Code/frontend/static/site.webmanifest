@@ -1,0 +1,21 @@
+{
+  "name": "Eye of Aqaba",
+  "short_name": "Eye of Aqaba",
+  "icons": [
+    {
+      "src": "/static/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/static/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#06344a",
+  "background_color": "#f6efe3",
+  "display": "standalone"
+}
