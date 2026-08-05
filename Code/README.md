@@ -1,4 +1,4 @@
-# Eye of Aqaba Portal
+# Aqaba Eye Portal
 
 Bilingual (Arabic/English) FastAPI + Jinja2 site. Server-rendered, no build step,
 no paid services. See `../Files/PRD.md` and `../Files/PLAN.md` for the full spec.

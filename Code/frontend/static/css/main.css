@@ -33,7 +33,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-sand);
+  background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-sans);
   line-height: 1.6;

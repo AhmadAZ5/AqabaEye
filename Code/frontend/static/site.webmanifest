@@ -1,6 +1,6 @@
 {
-  "name": "Eye of Aqaba",
-  "short_name": "Eye of Aqaba",
+  "name": "Aqaba Eye",
+  "short_name": "Aqaba Eye",
   "icons": [
     {
       "src": "/static/web-app-manifest-192x192.png",
@@ -16,6 +16,6 @@
     }
   ],
   "theme_color": "#06344a",
-  "background_color": "#f6efe3",
+  "background_color": "#ffffff",
   "display": "standalone"
 }

@@ -6,7 +6,7 @@ class Settings:
         self.env = os.getenv("ENV", "development")
         self.contact_email = os.getenv("CONTACT_EMAIL", "Eyeofaqaba@gmail.com")
         self.site_name_ar = "عين العقبة"
-        self.site_name_en = "Eye of Aqaba"
+        self.site_name_en = "Aqaba Eye"
 
         # published-to-web CSV urls for each tab of the content spreadsheet, one
         # per tab, all optional, if any of these are blank sheets.py just falls

@@ -17,7 +17,7 @@ def _send(name: str, email: str, phone: str, message: str) -> bool:
         return False
 
     body = EmailMessage()
-    body["Subject"] = f"Eye of Aqaba contact form: {name}"
+    body["Subject"] = f"Aqaba Eye contact form: {name}"
     body["From"] = settings.smtp_user
     body["To"] = settings.contact_email
     body["Reply-To"] = email
