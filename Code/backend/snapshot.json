@@ -512,14 +512,14 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": null,
-      "lng": null,
+      "lat": 29.5297863,
+      "lng": 35.0049645,
       "partner_url": "https://coralgardenjo.com/",
       "phone": "+974 74446142",
       "image_urls": [],
       "is_featured": false,
       "is_published": true,
-      "last_verified": "2026-08-04"
+      "last_verified": "2026-08-08"
     },
     {
       "slug": "sea-horse-dive-center",
