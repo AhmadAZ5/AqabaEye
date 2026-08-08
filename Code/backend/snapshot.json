@@ -176,8 +176,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": 29.505,
-      "lng": 34.988,
+      "lat": 29.4262846,
+      "lng": 34.9794980,
       "partner_url": "https://www.instagram.com/bait.alaqaba/",
       "phone": "+962799944797",
       "image_urls": [
@@ -187,7 +187,7 @@
       ],
       "is_featured": false,
       "is_published": true,
-      "last_verified": "2026-07-31"
+      "last_verified": "2026-08-08"
     },
     {
       "slug": "rise-adventure-park",
@@ -250,8 +250,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": 29.485,
-      "lng": 34.975,
+      "lat": 29.4050688,
+      "lng": 34.9781855,
       "partner_url": "https://www.deepbluedivecenter.com/",
       "image_urls": [
         "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/attractions/deep-blue-dive-center-1.jpg",
@@ -260,7 +260,7 @@
       ],
       "is_featured": true,
       "is_published": true,
-      "last_verified": "2026-08-01"
+      "last_verified": "2026-08-08"
     },
     {
       "slug": "triton-aqaba",
@@ -348,8 +348,8 @@
       "price_child": 0,
       "currency": "JOD",
       "hours": "08:00 - 17:00",
-      "lat": 29.4232928,
-      "lng": 34.9733835,
+      "lat": 29.448487,
+      "lng": 34.97057,
       "partner_url": "https://www.aqabadivingseastar.com/",
       "phone": "7978101000",
       "image_urls": [
@@ -359,7 +359,7 @@
       ],
       "is_featured": false,
       "is_published": true,
-      "last_verified": "2026-08-04"
+      "last_verified": "2026-08-08"
     },
     {
       "slug": "aqaba-sharks-bay-divers",
