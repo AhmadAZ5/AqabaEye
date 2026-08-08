@@ -747,9 +747,9 @@
       "slug": "diving-in-the-red-sea",
       "title_ar": "الغوص في البحر الأحمر",
       "title_en": "Diving in the Red Sea",
-      "body_ar": "محتوى مدونة مؤقت عن مواقع الغوص في العقبة.",
-      "body_en": "Placeholder blog content about dive sites near Aqaba.",
-      "cover_image": "",
+      "body_ar": "العقبة هي الساحل الأردني الوحيد على البحر الأحمر، وقربها من الشاطئ يجعل المياه الدافئة الصافية والشعاب المرجانية على بعد أمتار قليلة من الشاطئ. تنظّم مراكز الغوص المحلية رحلات يومية إلى مواقع حطام مشهورة مثل سيدار برايد، وهي سفينة شحن لبنانية أُغرقت عام 1985 وتقع الآن على عمق 20-40 مترًا، وحطام الدبابة الأقل عمقًا عند 6 أمتار فقط، إلى جانب مواقع شعاب مرجانية مناسبة للمبتدئين مثل الحديقة اليابانية. تقدّم معظم المراكز شهادات PADI، والغوص الليلي، ورحلات السنوركلينغ أيضًا. يمكن مراجعة دليل المعالم للاطلاع على مراكز الغوص وأسعارها المعلنة وأوقات عملها وبيانات التواصل معها.",
+      "body_en": "Aqaba is Jordan's only stretch of Red Sea coastline, and shore access puts warm, clear water and coral reefs just meters from the beach. Local dive centers run daily trips to well-known wreck sites like the Cedar Pride, a Lebanese freighter scuttled in 1985 that now rests at 20-40 meters, and the shallower Tank wreck at just 6 meters, alongside beginner-friendly reef sites like the Japanese Garden. Most centers offer PADI certification, night dives, and snorkeling trips too. Check the Attractions directory for dive centers with published prices, hours, and contact details.",
+      "cover_image": "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/posts/diving-in-the-red-sea-hero.jpg",
       "published_at": "2026-06-10",
       "is_published": true
     },
@@ -757,9 +757,9 @@
       "slug": "a-weekend-itinerary",
       "title_ar": "برنامج نهاية أسبوع في العقبة",
       "title_en": "A Weekend Itinerary in Aqaba",
-      "body_ar": "محتوى مدونة مؤقت لبرنامج مقترح لنهاية أسبوع.",
-      "body_en": "Placeholder blog content suggesting a two-day weekend itinerary.",
-      "cover_image": "",
+      "body_ar": "يمكن أن تبدأ رحلة استرخاء لمدة يومين في العقبة ببطء: الصباح هو الأفضل للمشي أو الصيد أو غوص مبكر، بينما تبقى المياه هادئة للسباحة والجيت سكي ورحلات القوارب خلال فترة الظهيرة. اقضِ المساء في مشاهدة الغروب من الشاطئ الجنوبي أو الكورنيش، ثم توجّه إلى وسط مدينة العقبة لزيارة السوق وتناول المأكولات البحرية وأطباق مثل الصيادية والمنسف. في اليوم الثاني، يمكن زيارة قلعة العقبة والمتحف الأثري، أو التوقف في أيلة أو مرصد طيور العقبة كخيار مناسب للعائلات، قبل رحلة قارب مسائية أو جولة بقارب زجاجي القاع على الماء مجددًا. يمكن مراجعة دليل المعالم لإيجاد مشغّلي كل نشاط.",
+      "body_en": "A relaxed two-day trip to Aqaba can start slow: mornings are best for walking, fishing, or an early dive, while the water stays calm for swimming, jet skiing, and boat trips through the afternoon. Spend an evening watching the sunset from South Beach or the Corniche, then head into downtown Aqaba for the souq, seafood, and dishes like sayadieh and mansaf. On the second day, take in Aqaba Castle and the Archaeological Museum, or a family-friendly stop at Ayla or the Aqaba Bird Observatory, before an evening boat trip or a glass-bottom tour back on the water. See the Attractions directory to find operators for each activity.",
+      "cover_image": "https://cdn.jsdelivr.net/gh/AhmadAZ5/AqabaEye@main/Code/frontend/static/img/posts/a-weekend-itinerary-hero.jpg",
       "published_at": "2026-06-20",
       "is_published": true
     }
